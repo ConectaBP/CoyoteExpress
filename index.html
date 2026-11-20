@@ -84,6 +84,20 @@
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #0A0A0A;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+        input, textarea, select {
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
         }
         .font-brand {
             font-family: 'Oswald', sans-serif;
@@ -994,7 +1008,6 @@
         const toast = document.getElementById('toast');
         const toastMsg = document.getElementById('toast-msg');
 
-        // Estructura del carrito: { "Nombre": { qty: 1, price: 22000 } }
         let cart = {};
         let deliveryMode = 'Domicilio';
 
@@ -1171,6 +1184,35 @@
                     .catch((err) => console.log('SW:', err));
             });
         }
+
+        // =========================================================================
+        // MEDIDAS DE PROTECCIÓN DE CÓDIGO E INTERFAZ (CONECTA+)
+        // =========================================================================
+        document.addEventListener('contextmenu', (e) => {
+            if (!['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            const key = e.key.toLowerCase();
+            if (
+                e.key === 'F12' ||
+                (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(key)) ||
+                (e.metaKey && e.altKey && ['i', 'j', 'c'].includes(key)) ||
+                (e.ctrlKey && ['u', 's'].includes(key)) ||
+                (e.metaKey && ['u', 's'].includes(key))
+            ) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        document.addEventListener('dragstart', (e) => {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
 </html>
