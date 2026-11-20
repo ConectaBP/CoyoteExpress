@@ -4,6 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <!-- Protección de interfaz y disuasión en fase de captura -->
+    <script>
+        (function() {
+            const isEditable = (el) => el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT' || el.isContentEditable);
+
+            window.addEventListener('contextmenu', function(e) {
+                if (!isEditable(e.target)) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            }, true);
+
+            window.addEventListener('keydown', function(e) {
+                const key = (e.key || '').toLowerCase();
+                if (
+                    e.key === 'F12' ||
+                    (e.ctrlKey && e.shiftKey && ['i', 'j', 'c', 'u'].includes(key)) ||
+                    (e.ctrlKey && ['u', 's', 'p'].includes(key)) ||
+                    (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].includes(key)) ||
+                    (e.metaKey && ['u', 's', 'p'].includes(key))
+                ) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            }, true);
+
+            window.addEventListener('dragstart', function(e) {
+                if (e.target && e.target.tagName === 'IMG') {
+                    e.preventDefault();
+                    return false;
+                }
+            }, true);
+        })();
+    </script>
+
     <!-- Etiquetas PWA para hacer instalable la web -->
     <meta name="theme-color" content="#F5B800">
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,7 +54,7 @@
     <meta property="og:title" content="Coyote Express - Comidas Rápidas & Asados">
     <meta property="og:description" content="¡Despierta el antojo! Pide nuestros Productos Estrella, Salchipapas, Hamburguesas, Perros y Asados al carbón directamente desde nuestra app.">
     <meta property="og:image" content="https://i.postimg.cc/5yJ3VRg6/Whats-App-Image-2026-11-18-at-7-28-19-PM.jpg">
-    <meta property="og:url" content="https://conectabp.github.io/CoyoteExpress/">
+    <meta property="og:url" content="https://soyconectaplus.com/CoyoteExpress/">
     <meta property="og:type" content="website">
     
     <meta name="twitter:card" content="summary_large_image">
@@ -30,39 +67,6 @@
     
     <title>Tarjeta Digital - Coyote Express</title>
     
-    <!-- Script de Protección Anticipada (Fase de Captura) -->
-    <script>
-        (function() {
-            const blockEvent = function(e) {
-                const tag = e.target && e.target.tagName ? e.target.tagName.toUpperCase() : '';
-                if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                }
-            };
-            window.addEventListener('contextmenu', blockEvent, true);
-            document.addEventListener('contextmenu', blockEvent, true);
-            document.oncontextmenu = function() { return false; };
-
-            window.addEventListener('keydown', function(e) {
-                const key = (e.key || '').toLowerCase();
-                if (
-                    e.key === 'F12' ||
-                    e.keyCode === 123 ||
-                    (e.ctrlKey && e.shiftKey && ['i', 'j', 'c', 'u', 'k'].includes(key)) ||
-                    (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].includes(key)) ||
-                    (e.ctrlKey && ['u', 's', 'p'].includes(key)) ||
-                    (e.metaKey && ['u', 's', 'p'].includes(key))
-                ) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    return false;
-                }
-            }, true);
-        })();
-    </script>
-
     <!-- Tailwind CSS para diseño moderno y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -118,19 +122,14 @@
             font-family: 'Poppins', sans-serif;
             background-color: #0A0A0A;
             -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
             user-select: none;
         }
         input, textarea, select {
             -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
             user-select: text;
         }
         img {
             -webkit-user-drag: none;
-            user-drag: none;
         }
         .font-brand {
             font-family: 'Oswald', sans-serif;
@@ -344,7 +343,7 @@
                 <div class="mb-4 flex items-center gap-2 bg-[#1a1a1a] px-3 py-1.5 rounded-full border border-coyote-gray/30 shadow-inner" title="Visitas a la tarjeta">
                     <i class="fas fa-eye text-coyote-yellow text-xs"></i>
                     <span class="text-xs text-coyote-beige font-semibold">Visitas:</span>
-                    <img src="https://hits.sh/conectabp.github.io/coyoteexpress.svg?style=flat-square&label=&color=F5B800&labelColor=121212" alt="Contador de Visitas" class="h-4 rounded-sm">
+                    <img src="https://hits.sh/soyconectaplus.com/coyoteexpress.svg?style=flat-square&label=&color=F5B800&labelColor=121212" alt="Contador de Visitas" class="h-4 rounded-sm">
                 </div>
 
                 <p class="text-[10px] text-coyote-gray mb-2">Este sitio fue creado por <span class="text-coyote-beige font-bold tracking-wide">Conecta+</span></p>
@@ -596,627 +595,4 @@
                     <!-- Los items del carrito aparecerán aquí -->
                 </div>
 
-                <!-- Formulario de Entrega, Pago y Notas dentro del carrito -->
-                <div id="delivery-form" class="bg-coyote-black/80 rounded-2xl p-3.5 border border-coyote-gray/30 space-y-3 text-left hidden">
-                    <p class="text-[11px] font-bold uppercase tracking-wider text-coyote-yellow flex items-center gap-1.5">
-                        <i class="fas fa-clipboard-list text-coyote-orange"></i> Datos de Entrega
-                    </p>
-
-                    <!-- Modalidad: Domicilio vs Recoger -->
-                    <div>
-                        <label class="text-[10px] text-coyote-beige block mb-1">¿Cómo deseas recibir tu pedido?</label>
-                        <div class="grid grid-cols-2 gap-2">
-                            <button type="button" id="btn-mode-domicilio" onclick="setDeliveryMode('Domicilio')" class="py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex items-center justify-center gap-1.5 transition-all">
-                                <i class="fas fa-motorcycle"></i> Domicilio
-                            </button>
-                            <button type="button" id="btn-mode-recoger" onclick="setDeliveryMode('Recoger en Local')" class="py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex items-center justify-center gap-1.5 transition-all">
-                                <i class="fas fa-store"></i> Recoger
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Campo Dirección (se oculta si elige Recoger) -->
-                    <div id="address-field-container">
-                        <label for="order-address" class="text-[10px] text-coyote-beige block mb-1">Dirección / Barrio</label>
-                        <input type="text" id="order-address" oninput="updateWhatsAppLink()" placeholder="Ej: Calle 10 # 15-20, Barrio Centro" class="w-full bg-[#1e1e1e] text-white text-xs rounded-xl px-3 py-2 border border-coyote-gray/40 focus:outline-none focus:border-coyote-yellow placeholder-coyote-gray/70">
-                    </div>
-
-                    <!-- Método de Pago -->
-                    <div>
-                        <label for="order-payment" class="text-[10px] text-coyote-beige block mb-1">Método de Pago</label>
-                        <select id="order-payment" onchange="updateWhatsAppLink()" class="w-full bg-[#1e1e1e] text-white text-xs rounded-xl px-3 py-2 border border-coyote-gray/40 focus:outline-none focus:border-coyote-yellow">
-                            <option value="Efectivo">💵 Efectivo</option>
-                            <option value="Nequi">📱 Nequi</option>
-                            <option value="Bancolombia">🏦 Transferencia Bancolombia</option>
-                            <option value="Datáfono">💳 Datáfono</option>
-                        </select>
-                    </div>
-
-                    <!-- Notas adicionales -->
-                    <div>
-                        <label for="order-notes" class="text-[10px] text-coyote-beige block mb-1">Notas o indicaciones (opcional)</label>
-                        <input type="text" id="order-notes" oninput="updateWhatsAppLink()" placeholder="Ej: Sin cebolla, pago con billete de $50.000..." class="w-full bg-[#1e1e1e] text-white text-xs rounded-xl px-3 py-2 border border-coyote-gray/40 focus:outline-none focus:border-coyote-yellow placeholder-coyote-gray/70">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Resumen de Total y Botón de WhatsApp -->
-            <div class="shrink-0 pt-3 border-t border-coyote-gray/30">
-                <div id="cart-total-box" class="flex justify-between items-center bg-coyote-black px-4 py-2.5 rounded-xl border border-coyote-gray/30 mb-3 hidden">
-                    <span class="text-xs uppercase tracking-wider text-coyote-beige font-semibold">Total Estimado:</span>
-                    <span id="cart-total-amount" class="text-lg font-extrabold text-coyote-yellow">$0</span>
-                </div>
-
-                <a id="send-order-btn" href="#" onclick="rastrearEvento('Enviar_Pedido_WhatsApp')" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3.5 px-6 rounded-2xl text-base transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.35)] flex items-center justify-center gap-2 opacity-50 pointer-events-none uppercase font-brand tracking-wider">
-                    <i class="fab fa-whatsapp text-xl"></i> Enviar Pedido por WhatsApp
-                </a>
-                
-                <div class="flex justify-between items-center mt-3 px-1">
-                    <button onclick="clearCart()" id="clear-cart-btn" class="text-coyote-orange text-[11px] hover:underline hidden">
-                        <i class="fas fa-trash-can mr-1"></i> Vaciar carrito
-                    </button>
-                    <button onclick="closePopup('cart-popup')" class="text-coyote-beige text-xs hover:text-white underline ml-auto">
-                        Seguir viendo carta
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===================================================================== -->
-    <!-- POPUP 10: PERSONALIZACIÓN RÁPIDA DE PRODUCTO                          -->
-    <!-- ===================================================================== -->
-    <div id="customize-popup" class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 hidden p-4">
-        <div class="bg-[#181818] border border-coyote-yellow/50 rounded-3xl shadow-2xl p-6 max-w-xs w-full relative text-white text-left">
-            <button onclick="closePopup('customize-popup')" class="absolute top-3 right-4 text-2xl text-coyote-gray hover:text-white">&times;</button>
-            
-            <div class="flex items-center gap-2 mb-1">
-                <span class="bg-coyote-orange text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase">Personaliza</span>
-            </div>
-            <h3 id="cust-product-title" class="text-xl font-bold font-brand text-coyote-yellow uppercase leading-tight">Producto</h3>
-            <p id="cust-question" class="text-xs text-coyote-beige mt-1.5 mb-4">Elige una opción para tu plato:</p>
-            
-            <div id="cust-options-container" class="space-y-2 mb-5">
-                <!-- Opciones generadas dinámicamente -->
-            </div>
-
-            <button id="cust-confirm-btn" class="w-full bg-gradient-to-r from-coyote-yellow to-coyote-orange text-coyote-black font-bold py-3 px-4 rounded-xl text-sm flex items-center justify-center gap-2 hover:brightness-110 transition-all shadow-md uppercase font-brand tracking-wider">
-                <i class="fas fa-plus-circle"></i> Agregar al Pedido (<span id="cust-final-price">$0</span>)
-            </button>
-        </div>
-    </div>
-
-    <script>
-        // =========================================================================
-        // BASE DE DATOS DEL MENÚ COMPLETO DE COYOTE EXPRESS
-        // =========================================================================
-        const menuData = {
-            estrella: [
-                { name: "Papi Pollo Personal", price: 22000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Papi Pollo Grande", price: 30000, desc: "Porción generosa de papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Papi Express Personal", price: 24000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Papi Express Grande", price: 34000, desc: "Para compartir: papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Suprema", price: 50000, desc: "La reina de la casa: papas a la francesa, salchichas, huevos de codorniz, longaniza, trocitos de costilla BBQ, carne y pollo desmechado, maicitos, tocineta y queso mozzarella.", tag: "MEGA" },
-                { name: "Churrasco", price: 36000, desc: "Corte jugoso a la parrilla acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", tag: "PARRILLA", customType: "gratinado" },
-                { name: "Filete de Pollo Gratinado", price: 36000, desc: "Pechuga a la parrilla cubierta con abundante queso gratinado, papas a la francesa, ensalada y arepa con queso.", tag: "PARRILLA" }
-            ],
-            salchipapas: [
-                { section: "SALCHIPAPAS" },
-                { name: "Salchipapa Sencilla", price: 18000, desc: "Papas a la francesa, salchichas y huevos de codorniz." },
-                { name: "Salchipapa Especial (Tocineta)", price: 20000, desc: "Papas a la francesa, salchichas, huevos de codorniz, tocineta y queso mozzarella." },
-                { name: "Choripapa (Chorizo de Pollo)", price: 20000, desc: "Papas a la francesa, salchichas, huevos de codorniz, chorizo de pollo y queso mozzarella." },
-                { name: "Papi Pollo Personal", price: 22000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papi Pollo Grande", price: 30000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papi Express Personal", price: 24000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papi Express Grande", price: 34000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Suprema", price: 50000, desc: "Papas a la francesa, salchichas, huevos de codorniz, longaniza, costilla BBQ, carne y pollo desmechado, maicitos, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papicoste Personal", price: 24000, desc: "Papas a la francesa, salchichas, trocitos de costilla BBQ, tocineta, huevos de codorniz y queso mozzarella." },
-                { name: "Papicoste Grande", price: 34000, desc: "Porción grande con trocitos de costilla BBQ, tocineta, huevos de codorniz y queso mozzarella." },
-                { name: "Papi Enqueso", price: 22000, desc: "Papas a la francesa, dedos de pechuga de pollo crocantes, huevos de codorniz y queso mozzarella." },
-                { name: "Papas Americanas", price: 18000, desc: "Papas a la francesa, salsa de queso tipo cheddar y tocineta crocante." },
-                { section: "PATACÓN O AREPA" },
-                { name: "Patacón o Arepa Pura", price: 28000, desc: "Carne y pollo desmechado, salchichas, maicitos, hogao, huevo de codorniz y queso mozzarella." },
-                { name: "Patacón o Arepa Entripado", price: 28000, desc: "Pollo y carne desmechada, maicitos, hogao, huevo de codorniz y queso mozzarella." }
-            ],
-            burgers: [
-                { section: "HAMBURGUESAS" },
-                { name: "Burger Res Especial", price: 20000, desc: "Pan brioche, carne de res, tocineta, queso mozzarella, lechuga, tomate, ensalada de perro y ripio de papa." },
-                { name: "Burger Pollo Artesanal", price: 20000, desc: "Pan brioche, filete de pollo, tocineta, queso mozzarella, lechuga, tomate, ensalada de perro y ripio de papa." },
-                { name: "Burger Mixta o Doble Carne", price: 28000, desc: "Pan brioche, carne de res, filete de pollo, tocineta, queso mozzarella, lechuga, tomate, ensalada de perro y ripio de papa." },
-                { name: "Burger Trifásica", price: 30000, desc: "Pan brioche, carne de res, tocineta, chorizo de pollo, queso mozzarella, lechuga, tomate, ripio de papa, salsa tártara y ensalada de perro." },
-                { name: "Súper Burger", price: 30000, desc: "Pan brioche, carne de res, pollo y carne desmechada, tocineta, queso mozzarella, lechuga, tomate, ripio de papa y salsa de la casa." },
-                { name: "Burger Deportiva", price: 20000, desc: "Pan brioche, carne de res o pollo, queso tipo cheddar, lechuga, tomate y papas americanas.", customType: "proteina" },
-                { name: "Smash Burger", price: 23000, desc: "Pan brioche, carne de res tipo smash, doble queso tipo cheddar, salsa especial, cebolla caramelizada y papas a la francesa." },
-                { name: "Pulled Beef Burger", price: 23000, desc: "Pan brioche, carne de res en trozos, doble queso cheddar, tocineta crocante, carne desmechada en demiglace de BBQ, piña y papas estilo Big Mac." },
-                { name: "Burger Tocinada", price: 23000, desc: "Pan brioche, proteína a elección (res o pollo), tocineta, queso mozzarella, ripio de papa, ensalada de perro, papas y gaseosa personal.", customType: "proteina" },
-                { section: "PERROS CALIENTES (Con ensalada de perro y ripio de papa)" },
-                { name: "Perro Especial", price: 18000, desc: "Salchicha zenú + tocineta." },
-                { name: "Perra", price: 20000, desc: "Abundante tocineta y queso." },
-                { name: "Perro Suizo", price: 20000, desc: "Longaniza zenú + tocineta." },
-                { name: "Perro Coyote", price: 22000, desc: "Carne desmechada + tocineta." },
-                { name: "Perro Zorra", price: 22000, desc: "Pollo desmechado + tocineta." },
-                { name: "Perro Grilla", price: 22000, desc: "Carne y pollo desmechado + tocineta." },
-                { name: "Perro Sabroso", price: 26000, desc: "Salchicha zenú + carne y pollo desmechado + tocineta." },
-                { name: "Perro Tromp", price: 30000, desc: "Longaniza zenú + carne y pollo desmechado + tocineta + papas a la francesa." },
-                { section: "ENSALADA GOURMET & APLASTADO" },
-                { name: "Aplastado Especial", price: 32000, desc: "Pan brioche, jamón, carne y pollo desmechado, hogao, tocineta, queso mozzarella y huevo de codorniz." },
-                { name: "Ensalada de Pollo", price: 24000, desc: "Filete de pollo en trocitos, lechuga, ensalada de verduras, maicitos, huevos de codorniz y salsa de la casa." },
-                { name: "Ensalada de Atún", price: 24000, desc: "Atún, lechuga, ensalada de verduras, maicitos, huevos de codorniz y salsa de la casa." }
-            ],
-            asados: [
-                { section: "ASADOS AL CARBÓN (Con papas a la francesa, ensalada y arepa con queso)" },
-                { name: "Churrasco", price: 36000, desc: "Corte clásico jugoso a la parrilla con acompañamientos completos.", tag: "TOP", customType: "gratinado" },
-                { name: "Filete de Pollo Gratinado", price: 36000, desc: "Pechuga asada bañada en queso mozzarella gratinado y acompañamientos.", tag: "TOP" },
-                { name: "Punta de Anca", price: 36000, desc: "Corte tradicional tierno y jugoso con papas, ensalada y arepa con queso.", customType: "gratinado" },
-                { name: "Cañón de Cerdo", price: 36000, desc: "Lomo de cerdo asado al punto perfecto con acompañamientos.", customType: "gratinado" },
-                { name: "Costilla BBQ", price: 36000, desc: "Costillas de cerdo bañadas en nuestra salsa BBQ artesanal.", customType: "gratinado" },
-                { name: "Filete de Pollo", price: 36000, desc: "Pechuga de pollo jugosa a la parrilla con papas, ensalada y arepa con queso.", customType: "gratinado" },
-                { name: "Churrasco Premium", price: 40000, desc: "Corte seleccionado de mayor gramaje a la parrilla con acompañamientos.", customType: "gratinado" },
-                { name: "Entrañita", price: 45000, desc: "Corte especial de res ultra jugoso y lleno de sabor a la brasa.", customType: "gratinado" },
-                { name: "Media Porción de Asado", price: 28000, desc: "Porción personal ideal con papas a la francesa, ensalada y arepa con queso.", customType: "gratinado" },
-                { name: "Adición Gratinado para Asado", price: 5000, desc: "Capa extra de queso mozzarella fundido sobre tu corte." },
-                { section: "CHUZOS, LONGANIZA & PICADAS" },
-                { name: "Chuzo de Pollo Artesanal (Solo)", price: 22000, desc: "Acompañado de papas al vapor, ensalada de perro y arepa." },
-                { name: "Chuzo de Pollo Artesanal (Con Papas Francesa)", price: 24000, desc: "Con papas a la francesa, ensalada de perro y arepa." },
-                { name: "Longaniza Zenú (Sola)", price: 22000, desc: "Acompañada de papas al vapor, ensalada de perro y arepa." },
-                { name: "Longaniza Zenú (Con Papas Francesa)", price: 24000, desc: "Con papas a la francesa, ensalada de perro y arepa." },
-                { name: "Picada Pollo", price: 30000, desc: "Carne de cerdo, filete de pollo, chorizo, papas fritas, monedas de plátano, tomate, arepa gratinada y ensalada." },
-                { name: "Picada Especial", price: 38000, desc: "Carne de cerdo, filete de pollo, chorizo, papas fritas, monedas de plátano, tomate, arepa gratinada y ensalada." }
-            ],
-            bebidas: [
-                { section: "BEBIDAS FRÍAS" },
-                { name: "Gaseosa 350 ml", price: 4000, desc: "Variedad de sabores bien fríos." },
-                { name: "Botella de Agua", price: 4000, desc: "Agua pura refrescante." },
-                { name: "Hit / Mr Tea / H2Oh / Mr Polo", price: 4000, desc: "Jugos y tés helados." },
-                { name: "Cerveza Nacional", price: 6000, desc: "Bien fría." },
-                { name: "Cerveza Coronita", price: 6000, desc: "Refrescante." },
-                { name: "Cerveza Corona", price: 8000, desc: "Botella grande bien fría." },
-                { name: "Gaseosa 1.5 Litros", price: 10000, desc: "Ideal para compartir en mesa o domicilio." },
-                { name: "Gaseosa 3 Litros", price: 14000, desc: "Tamaño familiar." },
-                { name: "Vaso con Hielo y Limón", price: 2000, desc: "Acompañamiento refrescante." },
-                { section: "SODAS & MICHELADAS" },
-                { name: "Michelada Tradicional", price: 8000, desc: "Con limón, sal y toque especial." },
-                { name: "Soda Hawaiana", price: 10000, desc: "Refrescante mezcla tropical." },
-                { section: "ADICIONES" },
-                { name: "Moneditas de Plátano con Hogao", price: 7000, desc: "Crocantes con hogao casero." },
-                { name: "Porción de Papas a la Francesa", price: 7000, desc: "Doraditas y crocantes." },
-                { name: "Porción de Yucas", price: 7000, desc: "Fritas y suaves por dentro." },
-                { name: "Porción de Ensalada", price: 7000, desc: "Fresca del día." },
-                { name: "Porción de Tocineta", price: 7000, desc: "Extra crocante." },
-                { name: "Porción de Queso de Sánduche", price: 7000, desc: "Para darle más sabor a tu plato." },
-                { name: "Porción de Tártara / De la Casa", price: 7000, desc: "4 onzas de nuestra salsa insignia." },
-                { name: "Porción de Salchicha", price: 8000, desc: "Adición de salchicha." },
-                { name: "Porción de Costillas BBQ", price: 15000, desc: "Trocitos jugosos de costilla." },
-                { name: "Tarro de Tártara", price: 18000, desc: "Para llevar a casa." },
-                { name: "Para Empacar", price: 1000, desc: "Empaque desechable." }
-            ]
-        };
-
-        // Formato de moneda colombiana ($22.000)
-        const formatCOP = (amount) => {
-            return "$" + amount.toLocaleString('es-CO');
-        };
-
-        // Renderizar tarjetas de menú en cada modal
-        const renderMenuCategory = (categoryKey, containerId) => {
-            const container = document.getElementById(containerId);
-            if (!container) return;
-
-            container.innerHTML = menuData[categoryKey].map(item => {
-                if (item.section) {
-                    return `
-                        <div class="pt-2 pb-1 px-1">
-                            <h3 class="font-brand text-sm uppercase tracking-widest text-coyote-yellow border-l-4 border-coyote-orange pl-2.5 bg-coyote-black/60 py-1.5 rounded-r-lg">
-                                ${item.section}
-                            </h3>
-                        </div>
-                    `;
-                }
-
-                const badgeHtml = item.tag 
-                    ? `<span class="bg-coyote-orange text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider ml-1.5 align-middle">${item.tag}</span>` 
-                    : '';
-
-                const clickAction = item.customType
-                    ? `openCustomizeModal('${item.name.replace(/'/g, "\\'")}', ${item.price}, '${item.customType}')`
-                    : `addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})`;
-
-                return `
-                    <div class="bg-[#1b1b1b] rounded-2xl border border-coyote-gray/25 shadow-md p-3 flex items-center justify-between gap-3 transition-all hover:border-coyote-yellow/50 hover:bg-[#222222]">
-                        <div class="flex-1 text-left">
-                            <h4 class="font-bold text-sm text-white leading-snug">
-                                ${item.name}${badgeHtml}
-                            </h4>
-                            <p class="text-[11px] text-coyote-beige/80 mt-1 leading-snug">${item.desc}</p>
-                            <p class="text-coyote-yellow font-extrabold text-sm mt-1.5">${formatCOP(item.price)}</p>
-                        </div>
-                        <button onclick="${clickAction}" class="bg-gradient-to-tr from-coyote-yellow to-amber-400 hover:from-coyote-orange hover:to-coyote-orange text-coyote-black hover:text-white w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 transition-all hover:scale-110 shadow-md font-bold" aria-label="Agregar ${item.name}">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                `;
-            }).join('');
-        };
-
-        // Inicializar listas de menú al cargar
-        renderMenuCategory('estrella', 'estrella-list');
-        renderMenuCategory('salchipapas', 'salchipapas-list');
-        renderMenuCategory('burgers', 'burgers-list');
-        renderMenuCategory('asados', 'asados-list');
-        renderMenuCategory('bebidas', 'bebidas-list');
-
-        // =========================================================================
-        // MANEJO DE POPUPS
-        // =========================================================================
-        const openPopup = (popupId) => document.getElementById(popupId)?.classList.remove('hidden');
-        const closePopup = (popupId) => document.getElementById(popupId)?.classList.add('hidden');
-
-        // Vincular botones principales a sus modales
-        document.getElementById('estrella-btn').addEventListener('click', () => openPopup('estrella-popup'));
-        document.getElementById('salchipapas-btn').addEventListener('click', () => openPopup('salchipapas-popup'));
-        document.getElementById('burgers-btn').addEventListener('click', () => openPopup('burgers-popup'));
-        document.getElementById('asados-btn').addEventListener('click', () => openPopup('asados-popup'));
-        document.getElementById('bebidas-btn').addEventListener('click', () => openPopup('bebidas-popup'));
-        document.getElementById('location-btn').addEventListener('click', () => openPopup('location-popup'));
-
-        // Cerrar modales al hacer clic fuera del contenido
-        ['location-popup', 'share-popup', 'install-popup', 'cart-popup', 'customize-popup'].forEach(id => {
-            document.getElementById(id)?.addEventListener('click', (e) => {
-                if (e.target.id === id) closePopup(id);
-            });
-        });
-
-        // =========================================================================
-        // INDICADOR AUTOMÁTICO DE HORARIO (ABIERTO / CERRADO)
-        // =========================================================================
-        const updateStoreStatus = () => {
-            const now = new Date();
-            const minutesNow = now.getHours() * 60 + now.getMinutes();
-            // Horario: 5:00 PM (17:00 = 1020 min) a 11:30 PM (23:30 = 1410 min)
-            const openMinutes = 17 * 60;
-            const closeMinutes = 23 * 60 + 30;
-            const isOpen = minutesNow >= openMinutes && minutesNow <= closeMinutes;
-
-            const badge = document.getElementById('store-status-badge');
-            const dot = document.getElementById('store-status-dot');
-            const text = document.getElementById('store-status-text');
-            if (!badge || !dot || !text) return;
-
-            if (isOpen) {
-                badge.className = "absolute top-3 left-1/2 -translate-x-1/2 bg-coyote-black/90 backdrop-blur-md border border-emerald-400/60 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-md whitespace-nowrap";
-                dot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-ping";
-                text.className = "text-[10px] font-bold text-emerald-300 tracking-wide uppercase";
-                text.innerText = "Abierto ahora • Cierra 11:30 PM";
-            } else {
-                badge.className = "absolute top-3 left-1/2 -translate-x-1/2 bg-coyote-black/90 backdrop-blur-md border border-coyote-orange/60 px-3 py-1 rounded-full flex items-center gap-1.5 shadow-md whitespace-nowrap";
-                dot.className = "w-2 h-2 rounded-full bg-coyote-orange";
-                text.className = "text-[10px] font-bold text-coyote-beige tracking-wide uppercase";
-                text.innerText = "Cerrado • Abrimos 5:00 PM";
-            }
-        };
-        updateStoreStatus();
-        setInterval(updateStoreStatus, 60000);
-
-        // =========================================================================
-        // MODAL DE PERSONALIZACIÓN RÁPIDA (PROTEÍNA / GRATINADO)
-        // =========================================================================
-        let currentCustomSelection = { name: "", price: 0 };
-
-        window.openCustomizeModal = (baseName, basePrice, customType) => {
-            const titleEl = document.getElementById('cust-product-title');
-            const questionEl = document.getElementById('cust-question');
-            const optionsContainer = document.getElementById('cust-options-container');
-            const finalPriceEl = document.getElementById('cust-final-price');
-
-            titleEl.innerText = baseName;
-
-            let options = [];
-            if (customType === 'proteina') {
-                questionEl.innerText = "¿Qué proteína prefieres para tu hamburguesa?";
-                options = [
-                    { label: "Carne de Res", suffix: " (Res)", extra: 0 },
-                    { label: "Filete de Pollo", suffix: " (Pollo)", extra: 0 }
-                ];
-            } else if (customType === 'gratinado') {
-                questionEl.innerText = "¿Deseas agregar gratinado con queso mozzarella?";
-                options = [
-                    { label: "Sin gratinar (Tradicional)", suffix: "", extra: 0 },
-                    { label: "Con Queso Gratinado (+$5.000)", suffix: " + Gratinado", extra: 5000 }
-                ];
-            }
-
-            const selectOption = (idx) => {
-                const opt = options[idx];
-                currentCustomSelection = {
-                    name: `${baseName}${opt.suffix}`,
-                    price: basePrice + opt.extra
-                };
-                finalPriceEl.innerText = formatCOP(currentCustomSelection.price);
-
-                options.forEach((_, i) => {
-                    const btn = document.getElementById(`cust-opt-${i}`);
-                    if (btn) {
-                        if (i === idx) {
-                            btn.className = "w-full p-3 rounded-xl border-2 border-coyote-yellow bg-coyote-yellow/15 text-white text-xs font-bold flex items-center justify-between transition-all text-left";
-                            btn.querySelector('.opt-check').innerHTML = '<i class="fas fa-circle-check text-coyote-yellow text-base"></i>';
-                        } else {
-                            btn.className = "w-full p-3 rounded-xl border border-coyote-gray/40 bg-coyote-black text-coyote-beige text-xs font-medium flex items-center justify-between transition-all text-left hover:border-coyote-gray";
-                            btn.querySelector('.opt-check').innerHTML = '<i class="far fa-circle text-coyote-gray text-base"></i>';
-                        }
-                    }
-                });
-            };
-
-            optionsContainer.innerHTML = options.map((opt, idx) => `
-                <button type="button" id="cust-opt-${idx}" class="w-full p-3 rounded-xl border border-coyote-gray/40 bg-coyote-black text-coyote-beige text-xs font-medium flex items-center justify-between transition-all text-left">
-                    <span>${opt.label}</span>
-                    <span class="opt-check"></span>
-                </button>
-            `).join('');
-
-            options.forEach((_, idx) => {
-                document.getElementById(`cust-opt-${idx}`).onclick = () => selectOption(idx);
-            });
-
-            selectOption(0);
-
-            document.getElementById('cust-confirm-btn').onclick = () => {
-                addToCart(currentCustomSelection.name, currentCustomSelection.price);
-                closePopup('customize-popup');
-            };
-
-            openPopup('customize-popup');
-        };
-
-        // =========================================================================
-        // COMPARTIR & GENERADOR DE CÓDIGO QR
-        // =========================================================================
-        const shareBtn = document.getElementById('share-btn');
-        const qrcodeContainer = document.getElementById('qrcode-container');
-        const shareUrlInput = document.getElementById('share-url');
-
-        shareBtn.addEventListener('click', () => {
-            const url = window.location.href.startsWith('http') ? window.location.href : 'https://conectabp.github.io/CoyoteExpress/';
-            shareUrlInput.value = url;
-
-            shareUrlInput.onclick = () => {
-                shareUrlInput.select();
-                try {
-                    if (navigator.clipboard) {
-                        navigator.clipboard.writeText(url).then(() => {
-                            const originalValue = shareUrlInput.value;
-                            shareUrlInput.value = "¡Enlace copiado!";
-                            setTimeout(() => shareUrlInput.value = originalValue, 2000);
-                        }).catch(() => document.execCommand('copy'));
-                    } else {
-                        document.execCommand('copy');
-                    }
-                } catch (err) {
-                    console.error('Error al copiar:', err);
-                }
-            };
-
-            qrcodeContainer.innerHTML = '';
-            new QRCode(qrcodeContainer, {
-                text: url,
-                width: 160,
-                height: 160,
-                colorDark: "#121212",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            });
-
-            openPopup('share-popup');
-        });
-
-        document.getElementById('close-share-popup-btn').addEventListener('click', () => closePopup('share-popup'));
-
-        // =========================================================================
-        // GUARDAR CONTACTO (vCard .vcf)
-        // =========================================================================
-        const saveContactBtn = document.getElementById('save-contact-btn');
-        const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Coyote Express\nORG:Coyote Express - Comidas Rápidas y Asados\nTEL;TYPE=WORK,VOICE:+573168324287\nTEL;TYPE=CELL,VOICE:+573168324287\nNOTE:Horario: Lunes a Domingo de 5:00 PM a 11:30 PM\nURL;TYPE=Facebook:https://www.facebook.com/share/1R4vQWtB2B/\nURL;TYPE=Instagram:https://www.instagram.com/coyotexpresspb?cnvx=MW5tZmFvcTk3ajl3Mw%3D%3D&utm_source=qr\nURL;TYPE=TikTok:https://www.tiktok.com/@coyote.express?_r=1&_t=ZS-9BZKEZOgxec\nEND:VCARD`;
-        saveContactBtn.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
-
-        // =========================================================================
-        // MODAL INSTALACIÓN PWA
-        // =========================================================================
-        document.getElementById('install-btn')?.addEventListener('click', (e) => {
-            e.preventDefault();
-            openPopup('install-popup');
-        });
-        document.getElementById('close-install-popup-btn')?.addEventListener('click', () => closePopup('install-popup'));
-
-        // =========================================================================
-        // CARRITO DE COMPRAS CON PRECIOS Y ENVÍO A WHATSAPP (3168324287)
-        // =========================================================================
-        const floatingCartBtn = document.getElementById('floating-cart-btn');
-        const closeCartBtn = document.getElementById('close-cart-popup-btn');
-        const cartItemsContainer = document.getElementById('cart-items');
-        const sendOrderBtn = document.getElementById('send-order-btn');
-        const cartTotalBox = document.getElementById('cart-total-box');
-        const cartTotalAmount = document.getElementById('cart-total-amount');
-        const clearCartBtn = document.getElementById('clear-cart-btn');
-        const deliveryForm = document.getElementById('delivery-form');
-        const toast = document.getElementById('toast');
-        const toastMsg = document.getElementById('toast-msg');
-
-        let cart = {};
-        let deliveryMode = 'Domicilio';
-
-        floatingCartBtn.addEventListener('click', () => {
-            renderCart();
-            openPopup('cart-popup');
-        });
-
-        closeCartBtn.addEventListener('click', () => closePopup('cart-popup'));
-
-        window.addToCart = (itemName, price) => {
-            if (cart[itemName]) {
-                cart[itemName].qty++;
-            } else {
-                cart[itemName] = { qty: 1, price: price };
-            }
-            updateCartUI();
-            showToast(itemName);
-            rastrearEvento(`Agregar_${itemName.replace(/\s+/g, '_')}`);
-        };
-
-        window.setDeliveryMode = (mode) => {
-            deliveryMode = mode;
-            const btnDom = document.getElementById('btn-mode-domicilio');
-            const btnRec = document.getElementById('btn-mode-recoger');
-            const addrContainer = document.getElementById('address-field-container');
-
-            if (mode === 'Domicilio') {
-                btnDom.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex items-center justify-center gap-1.5 transition-all";
-                btnRec.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex items-center justify-center gap-1.5 transition-all";
-                addrContainer.classList.remove('hidden');
-            } else {
-                btnRec.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex items-center justify-center gap-1.5 transition-all";
-                btnDom.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex items-center justify-center gap-1.5 transition-all";
-                addrContainer.classList.add('hidden');
-            }
-            updateWhatsAppLink();
-        };
-
-        window.decreaseCart = (itemName) => {
-            if (cart[itemName]) {
-                cart[itemName].qty--;
-                if (cart[itemName].qty <= 0) delete cart[itemName];
-            }
-            updateCartUI();
-            renderCart();
-        };
-
-        window.increaseCart = (itemName) => {
-            if (cart[itemName]) {
-                cart[itemName].qty++;
-            }
-            updateCartUI();
-            renderCart();
-        };
-
-        window.clearCart = () => {
-            cart = {};
-            updateCartUI();
-            renderCart();
-        };
-
-        const updateCartUI = () => {
-            const entries = Object.values(cart);
-            const totalCount = entries.reduce((sum, item) => sum + item.qty, 0);
-            const totalMoney = entries.reduce((sum, item) => sum + (item.qty * item.price), 0);
-
-            document.querySelectorAll('.cart-badge, .cart-badge-inline').forEach(badge => {
-                badge.innerText = totalCount;
-                if (totalCount > 0) badge.classList.remove('hidden');
-                else badge.classList.add('hidden');
-            });
-
-            if (totalCount > 0) {
-                sendOrderBtn.classList.remove('opacity-50', 'pointer-events-none');
-                sendOrderBtn.classList.add('hover:brightness-110');
-                cartTotalBox.classList.remove('hidden');
-                clearCartBtn.classList.remove('hidden');
-                deliveryForm.classList.remove('hidden');
-                cartTotalAmount.innerText = formatCOP(totalMoney);
-            } else {
-                sendOrderBtn.classList.add('opacity-50', 'pointer-events-none');
-                sendOrderBtn.classList.remove('hover:brightness-110');
-                cartTotalBox.classList.add('hidden');
-                clearCartBtn.classList.add('hidden');
-                deliveryForm.classList.add('hidden');
-            }
-
-            updateWhatsAppLink(totalMoney);
-        };
-
-        const renderCart = () => {
-            const items = Object.entries(cart);
-            if (items.length === 0) {
-                cartItemsContainer.innerHTML = `
-                    <div class="text-center py-10">
-                        <i class="fas fa-burger text-4xl text-coyote-gray/40 mb-3"></i>
-                        <p class="text-coyote-beige text-sm font-medium">Aún no has agregado productos.</p>
-                        <p class="text-coyote-gray text-xs mt-1">Explora nuestros Productos Estrella o la carta.</p>
-                    </div>`;
-                return;
-            }
-
-            cartItemsContainer.innerHTML = items.map(([name, data]) => `
-                <div class="bg-[#222222] rounded-2xl p-3 flex justify-between items-center border border-coyote-gray/30 shadow-sm">
-                    <div class="flex-1 pr-2 text-left">
-                        <h5 class="text-xs font-bold text-white leading-tight">${name}</h5>
-                        <p class="text-[11px] text-coyote-yellow font-semibold mt-0.5">${formatCOP(data.price * data.qty)} <span class="text-[9px] text-coyote-gray font-normal">(${formatCOP(data.price)} c/u)</span></p>
-                    </div>
-                    <div class="flex items-center gap-2.5 bg-coyote-black rounded-full px-2 py-1 border border-coyote-gray/40">
-                        <button onclick="decreaseCart('${name.replace(/'/g, "\\'")}')" class="text-coyote-beige hover:text-coyote-orange w-6 h-6 flex items-center justify-center font-bold text-lg">&minus;</button>
-                        <span class="text-white text-xs w-4 text-center font-bold">${data.qty}</span>
-                        <button onclick="increaseCart('${name.replace(/'/g, "\\'")}')" class="text-coyote-beige hover:text-coyote-yellow w-6 h-6 flex items-center justify-center font-bold text-lg">+</button>
-                    </div>
-                </div>
-            `).join('');
-        };
-
-        const showToast = (itemName) => {
-            toastMsg.innerText = `1x ${itemName} agregado`;
-            toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
-            toast.classList.add('opacity-100', 'translate-y-0');
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
-            }, 2000);
-        };
-
-        const updateWhatsAppLink = (passedTotal) => {
-            const items = Object.entries(cart);
-            if (items.length === 0) {
-                sendOrderBtn.href = "#";
-                return;
-            }
-
-            const totalMoney = typeof passedTotal === 'number'
-                ? passedTotal
-                : items.reduce((sum, [, data]) => sum + (data.qty * data.price), 0);
-
-            const address = document.getElementById('order-address')?.value.trim() || '';
-            const payment = document.getElementById('order-payment')?.value || 'Efectivo';
-            const notes = document.getElementById('order-notes')?.value.trim() || '';
-
-            let text = "¡Hola *Coyote Express*! 🐺🔥 Quisiera hacer el siguiente pedido:\n\n";
-            items.forEach(([name, data]) => {
-                text += `▪️ *${data.qty}x* ${name} — ${formatCOP(data.price * data.qty)}\n`;
-            });
-            text += `\n💰 *Total estimado:* ${formatCOP(totalMoney)}\n`;
-            text += `🛵 *Modalidad:* ${deliveryMode}\n`;
-            if (deliveryMode === 'Domicilio') {
-                text += `📍 *Dirección:* ${address || 'Por confirmar'}\n`;
-            }
-            text += `💳 *Método de pago:* ${payment}\n`;
-            if (notes) {
-                text += `📝 *Notas:* ${notes}\n`;
-            }
-
-            const encodedText = encodeURIComponent(text);
-            sendOrderBtn.href = `https://wa.me/573168324287?text=${encodedText}`;
-        };
-
-        // =========================================================================
-        // SERVICE WORKER PWA
-        // =========================================================================
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                const swCode = `
-                    self.addEventListener('install', (e) => { self.skipWaiting(); });
-                    self.addEventListener('activate', (e) => { e.waitUntil(clients.claim()); });
-                    self.addEventListener('fetch', (e) => { }); 
-                `;
-                const blob = new Blob([swCode], { type: 'application/javascript' });
-                navigator.serviceWorker.register(URL.createObjectURL(blob))
-                    .catch((err) => console.log('SW:', err));
-            });
-        }
-    </script>
-</body>
-</html>
+                <!-- Formulario
