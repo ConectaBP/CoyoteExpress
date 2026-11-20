@@ -191,35 +191,35 @@
 
             <!-- Cuadrícula de Categorías de la Carta -->
             <div class="mb-6">
-                <!-- Fila 1: Categorías del Menú (4 botones) -->
-                <div class="grid grid-cols-4 gap-2 mb-5">
+                <!-- Fila 1: Categorías del Menú (Salchipapas, Burgers & Perros, Asados, Bebidas) -->
+                <div class="grid grid-cols-4 gap-2 items-start mb-6">
                     <!-- Salchipapas & Patacón -->
                     <div class="text-center group">
                         <button id="salchipapas-btn" onclick="rastrearEvento('Menu_Salchipapas')" class="bg-[#1e1e1e] hover:bg-coyote-yellow text-coyote-yellow hover:text-coyote-black border border-coyote-gray/30 hover:border-coyote-yellow w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Salchipapas y Patacón">
-                            <i class="fas fa-french-fries fa-utensils"></i>
+                            <i class="fas fa-utensils"></i>
                         </button>
-                        <p class="text-[10px] mt-1.5 text-coyote-beige font-medium leading-tight">Salchipapas<br>& Patacón</p>
+                        <p class="text-[10px] mt-2 text-coyote-beige font-medium leading-tight">Salchipapas</p>
                     </div>
                     <!-- Hamburguesas & Perros -->
                     <div class="text-center group">
                         <button id="burgers-btn" onclick="rastrearEvento('Menu_Burgers_Perros')" class="bg-[#1e1e1e] hover:bg-coyote-yellow text-coyote-yellow hover:text-coyote-black border border-coyote-gray/30 hover:border-coyote-yellow w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Hamburguesas y Perros">
                             <i class="fas fa-burger"></i>
                         </button>
-                        <p class="text-[10px] mt-1.5 text-coyote-beige font-medium leading-tight">Burgers<br>& Perros</p>
+                        <p class="text-[10px] mt-2 text-coyote-beige font-medium leading-tight">Burgers & Perros</p>
                     </div>
-                    <!-- Asados -->
+                    <!-- Asados & Picadas -->
                     <div class="text-center group">
-                        <button id="asados-btn" onclick="rastrearEvento('Menu_Asados')" class="bg-[#1e1e1e] hover:bg-coyote-orange text-coyote-orange hover:text-white border border-coyote-gray/30 hover:border-coyote-orange w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Asados">
+                        <button id="asados-btn" onclick="rastrearEvento('Menu_Asados')" class="bg-[#1e1e1e] hover:bg-coyote-orange text-coyote-orange hover:text-white border border-coyote-gray/30 hover:border-coyote-orange w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Asados y Picadas">
                             <i class="fas fa-fire-burner"></i>
                         </button>
-                        <p class="text-[10px] mt-1.5 text-coyote-beige font-medium leading-tight">Asados<br>& Picadas</p>
+                        <p class="text-[10px] mt-2 text-coyote-beige font-medium leading-tight">Asados & Picadas</p>
                     </div>
                     <!-- Bebidas & Adiciones -->
                     <div class="text-center group">
-                        <button id="bebidas-btn" onclick="rastrearEvento('Menu_Bebidas_Adiciones')" class="bg-[#1e1e1e] hover:bg-coyote-yellow text-coyote-yellow hover:text-coyote-black border border-coyote-gray/30 hover:border-coyote-yellow w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Bebidas y Adiciones">
+                        <button id="bebidas-btn" onclick="rastrearEvento('Menu_Bebidas')" class="bg-[#1e1e1e] hover:bg-coyote-yellow text-coyote-yellow hover:text-coyote-black border border-coyote-gray/30 hover:border-coyote-yellow w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Bebidas y Adiciones">
                             <i class="fas fa-bottle-droplet"></i>
                         </button>
-                        <p class="text-[10px] mt-1.5 text-coyote-beige font-medium leading-tight">Bebidas<br>& Extras</p>
+                        <p class="text-[10px] mt-2 text-coyote-beige font-medium leading-tight">Bebidas</p>
                     </div>
                 </div>
 
@@ -229,28 +229,35 @@
                     <span class="h-px w-6 bg-coyote-gray/40"></span>
                 </p>
 
-                <!-- Fila 2: WhatsApp, Ubicación y Facebook -->
-                <div class="flex justify-center gap-6 items-start mb-5">
+                <!-- Fila 2: WhatsApp, Ubicación, Facebook e Instagram -->
+                <div class="grid grid-cols-4 gap-2 items-start mb-5">
                     <!-- WhatsApp -->
-                    <div class="text-center w-20 group">
+                    <div class="text-center group">
                         <a href="https://wa.me/573168324287?text=¡Hola%20Coyote%20Express!%20Quisiera%20hacer%20un%20pedido." onclick="rastrearEvento('Clic_WhatsApp_Directo')" target="_blank" rel="noopener noreferrer" class="bg-[#1e1e1e] hover:bg-emerald-500 text-emerald-400 hover:text-coyote-black border border-coyote-gray/30 hover:border-emerald-400 w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                         <p class="text-[11px] mt-2 text-coyote-beige font-medium">WhatsApp</p>
                     </div>
                     <!-- Ubicación -->
-                    <div class="text-center w-20 group">
+                    <div class="text-center group">
                         <button id="location-btn" onclick="rastrearEvento('Clic_Ubicacion')" class="bg-[#1e1e1e] hover:bg-coyote-orange text-coyote-orange hover:text-white border border-coyote-gray/30 hover:border-coyote-orange w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Ubicación">
                             <i class="fas fa-location-dot"></i>
                         </button>
                         <p class="text-[11px] mt-2 text-coyote-beige font-medium">Ubicación</p>
                     </div>
                     <!-- Facebook -->
-                    <div class="text-center w-20 group">
+                    <div class="text-center group">
                         <a href="https://www.facebook.com/share/1R4vQWtB2B/" onclick="rastrearEvento('Clic_Facebook')" target="_blank" rel="noopener noreferrer" class="bg-[#1e1e1e] hover:bg-blue-600 text-blue-400 hover:text-white border border-coyote-gray/30 hover:border-blue-500 w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                         <p class="text-[11px] mt-2 text-coyote-beige font-medium">Facebook</p>
+                    </div>
+                    <!-- Instagram -->
+                    <div class="text-center group">
+                        <a href="https://www.instagram.com/coyotexpresspb?cnvx=MW5tZmFvcTk3ajl3Mw%3D%3D&utm_source=qr" onclick="rastrearEvento('Clic_Instagram')" target="_blank" rel="noopener noreferrer" class="bg-[#1e1e1e] hover:bg-gradient-to-tr hover:from-amber-500 hover:via-pink-600 hover:to-purple-600 text-pink-400 hover:text-white border border-coyote-gray/30 hover:border-pink-500 w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-all duration-300 group-hover:scale-110 shadow-lg mx-auto" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <p class="text-[11px] mt-2 text-coyote-beige font-medium">Instagram</p>
                     </div>
                 </div>
 
@@ -768,7 +775,7 @@
         // GUARDAR CONTACTO (vCard .vcf)
         // =========================================================================
         const saveContactBtn = document.getElementById('save-contact-btn');
-        const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Coyote Express\nORG:Coyote Express - Comidas Rápidas y Asados\nTEL;TYPE=WORK,VOICE:+573168324287\nTEL;TYPE=CELL,VOICE:+573168324287\nNOTE:Horario: Lunes a Domingo de 5:00 PM a 11:30 PM\nURL:https://www.facebook.com/share/1R4vQWtB2B/\nEND:VCARD`;
+        const vCardData = `BEGIN:VCARD\nVERSION:3.0\nFN:Coyote Express\nORG:Coyote Express - Comidas Rápidas y Asados\nTEL;TYPE=WORK,VOICE:+573168324287\nTEL;TYPE=CELL,VOICE:+573168324287\nNOTE:Horario: Lunes a Domingo de 5:00 PM a 11:30 PM\nURL;TYPE=Facebook:https://www.facebook.com/share/1R4vQWtB2B/\nURL;TYPE=Instagram:https://www.instagram.com/coyotexpresspb?cnvx=MW5tZmFvcTk3ajl3Mw%3D%3D&utm_source=qr\nEND:VCARD`;
         saveContactBtn.href = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
 
         // =========================================================================
