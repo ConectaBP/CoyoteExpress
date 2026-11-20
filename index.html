@@ -30,6 +30,39 @@
     
     <title>Tarjeta Digital - Coyote Express</title>
     
+    <!-- Script de Protección Anticipada (Fase de Captura) -->
+    <script>
+        (function() {
+            const blockEvent = function(e) {
+                const tag = e.target && e.target.tagName ? e.target.tagName.toUpperCase() : '';
+                if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            };
+            window.addEventListener('contextmenu', blockEvent, true);
+            document.addEventListener('contextmenu', blockEvent, true);
+            document.oncontextmenu = function() { return false; };
+
+            window.addEventListener('keydown', function(e) {
+                const key = (e.key || '').toLowerCase();
+                if (
+                    e.key === 'F12' ||
+                    e.keyCode === 123 ||
+                    (e.ctrlKey && e.shiftKey && ['i', 'j', 'c', 'u', 'k'].includes(key)) ||
+                    (e.metaKey && e.altKey && ['i', 'j', 'c', 'u'].includes(key)) ||
+                    (e.ctrlKey && ['u', 's', 'p'].includes(key)) ||
+                    (e.metaKey && ['u', 's', 'p'].includes(key))
+                ) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    return false;
+                }
+            }, true);
+        })();
+    </script>
+
     <!-- Tailwind CSS para diseño moderno y responsivo -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -128,7 +161,7 @@
         }
     </style>
 </head>
-<body class="bg-coyote-dark md:bg-[#18181b] md:flex md:items-center md:justify-center min-h-screen">
+<body oncontextmenu="return false;" ondragstart="return false;" class="bg-coyote-dark md:bg-[#18181b] md:flex md:items-center md:justify-center min-h-screen">
 
     <!-- Contenedor Principal Estilo Tarjeta Digital Móvil -->
     <div class="w-full md:max-w-sm bg-gradient-to-b from-coyote-black via-[#161616] to-coyote-dark md:shadow-[0_25px_60px_rgba(0,0,0,0.85)] text-center text-white md:rounded-3xl min-h-screen md:min-h-0 relative overflow-hidden border border-coyote-yellow/20">
@@ -1184,35 +1217,6 @@
                     .catch((err) => console.log('SW:', err));
             });
         }
-
-        // =========================================================================
-        // MEDIDAS DE PROTECCIÓN DE CÓDIGO E INTERFAZ (CONECTA+)
-        // =========================================================================
-        document.addEventListener('contextmenu', (e) => {
-            if (!['INPUT', 'TEXTAREA'].includes(e.target.tagName)) {
-                e.preventDefault();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            const key = e.key.toLowerCase();
-            if (
-                e.key === 'F12' ||
-                (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(key)) ||
-                (e.metaKey && e.altKey && ['i', 'j', 'c'].includes(key)) ||
-                (e.ctrlKey && ['u', 's'].includes(key)) ||
-                (e.metaKey && ['u', 's'].includes(key))
-            ) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
-        document.addEventListener('dragstart', (e) => {
-            if (e.target.tagName === 'IMG') {
-                e.preventDefault();
-            }
-        });
     </script>
 </body>
 </html>
