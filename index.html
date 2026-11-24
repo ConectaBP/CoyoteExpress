@@ -349,17 +349,19 @@
     <!-- POPUP 1: PRODUCTOS ESTRELLA -->
     <div id="estrella-popup" class="fixed inset-0 bg-gradient-to-b from-coyote-dark to-coyote-black z-50 hidden p-4 text-white">
         <div class="w-full h-full max-w-lg mx-auto relative flex flex-col">
-            <div class="flex justify-between items-center py-4 px-2 border-b border-coyote-orange/40 shrink-0">
+            <div class="flex justify-between items-center py-3.5 px-2 border-b border-coyote-orange/40 shrink-0 gap-2">
                 <div class="flex items-center gap-2.5">
-                    <span class="bg-coyote-orange text-white w-8 h-8 rounded-xl flex items-center justify-center shadow">
+                    <span class="bg-coyote-orange text-white w-8 h-8 rounded-xl flex items-center justify-center shadow shrink-0">
                         <i class="fas fa-star"></i>
                     </span>
                     <div>
-                        <h2 class="font-brand text-2xl text-coyote-yellow tracking-wide uppercase leading-none">Productos Estrella</h2>
+                        <h2 class="font-brand text-xl sm:text-2xl text-coyote-yellow tracking-wide uppercase leading-none">Productos Estrella</h2>
                         <span class="text-[10px] text-coyote-beige uppercase tracking-widest">Los favoritos de la casa</span>
                     </div>
                 </div>
-                <button type="button" onclick="closePopup('estrella-popup')" class="text-2xl text-coyote-beige hover:text-coyote-yellow transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-[#1f1f1f] cursor-pointer">&times;</button>
+                <button type="button" onclick="closePopup('estrella-popup')" class="bg-coyote-yellow hover:bg-amber-400 text-coyote-black font-extrabold text-xs px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-lg transition-transform active:scale-95 shrink-0 cursor-pointer border border-coyote-black/20">
+                    <i class="fas fa-arrow-left"></i> <span>Volver</span>
+                </button>
             </div>
             <div class="overflow-y-auto menu-scrollbar flex-grow py-5 pr-1">
                 <div id="estrella-list" class="space-y-3 px-1"></div>
@@ -375,12 +377,14 @@
     <!-- POPUP 2: SALCHIPAPAS & PATACÓN -->
     <div id="salchipapas-popup" class="fixed inset-0 bg-gradient-to-b from-coyote-dark to-coyote-black z-50 hidden p-4 text-white">
         <div class="w-full h-full max-w-lg mx-auto relative flex flex-col">
-            <div class="flex justify-between items-center py-4 px-2 border-b border-coyote-gray/30 shrink-0">
+            <div class="flex justify-between items-center py-3.5 px-2 border-b border-coyote-gray/30 shrink-0 gap-2">
                 <div class="flex items-center gap-2.5">
                     <i class="fas fa-utensils text-coyote-yellow text-xl"></i>
-                    <h2 class="font-brand text-2xl text-white tracking-wide uppercase">Salchipapas & Patacón</h2>
+                    <h2 class="font-brand text-xl sm:text-2xl text-white tracking-wide uppercase leading-none">Salchipapas & Patacón</h2>
                 </div>
-                <button type="button" onclick="closePopup('salchipapas-popup')" class="text-2xl text-coyote-beige hover:text-coyote-yellow transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-[#1f1f1f] cursor-pointer">&times;</button>
+                <button type="button" onclick="closePopup('salchipapas-popup')" class="bg-coyote-yellow hover:bg-amber-400 text-coyote-black font-extrabold text-xs px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-lg transition-transform active:scale-95 shrink-0 cursor-pointer border border-coyote-black/20">
+                    <i class="fas fa-arrow-left"></i> <span>Volver</span>
+                </button>
             </div>
             <div class="overflow-y-auto menu-scrollbar flex-grow py-5 pr-1">
                 <div id="salchipapas-list" class="space-y-3 px-1"></div>
@@ -396,12 +400,14 @@
     <!-- POPUP 3: HAMBURGUESAS, PERROS & APLASTADOS -->
     <div id="burgers-popup" class="fixed inset-0 bg-gradient-to-b from-coyote-dark to-coyote-black z-50 hidden p-4 text-white">
         <div class="w-full h-full max-w-lg mx-auto relative flex flex-col">
-            <div class="flex justify-between items-center py-4 px-2 border-b border-coyote-gray/30 shrink-0">
+            <div class="flex justify-between items-center py-3.5 px-2 border-b border-coyote-gray/30 shrink-0 gap-2">
                 <div class="flex items-center gap-2.5">
                     <i class="fas fa-burger text-coyote-yellow text-xl"></i>
-                    <h2 class="font-brand text-2xl text-white tracking-wide uppercase">Burgers, Perros & Más</h2>
+                    <h2 class="font-brand text-xl sm:text-2xl text-white tracking-wide uppercase leading-none">Burgers, Perros & Más</h2>
                 </div>
-                <button type="button" onclick="closePopup('burgers-popup')" class="text-2xl text-coyote-beige hover:text-coyote-yellow transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-[#1f1f1f] cursor-pointer">&times;</button>
+                <button type="button" onclick="closePopup('burgers-popup')" class="bg-coyote-yellow hover:bg-amber-400 text-coyote-black font-extrabold text-xs px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-lg transition-transform active:scale-95 shrink-0 cursor-pointer border border-coyote-black/20">
+                    <i class="fas fa-arrow-left"></i> <span>Volver</span>
+                </button>
             </div>
             <div class="overflow-y-auto menu-scrollbar flex-grow py-5 pr-1">
                 <div id="burgers-list" class="space-y-3 px-1"></div>
@@ -417,12 +423,14 @@
     <!-- POPUP 4: ASADOS & PICADAS -->
     <div id="asados-popup" class="fixed inset-0 bg-gradient-to-b from-coyote-dark to-coyote-black z-50 hidden p-4 text-white">
         <div class="w-full h-full max-w-lg mx-auto relative flex flex-col">
-            <div class="flex justify-between items-center py-4 px-2 border-b border-coyote-orange/40 shrink-0">
+            <div class="flex justify-between items-center py-3.5 px-2 border-b border-coyote-orange/40 shrink-0 gap-2">
                 <div class="flex items-center gap-2.5">
                     <i class="fas fa-fire-burner text-coyote-orange text-xl"></i>
-                    <h2 class="font-brand text-2xl text-white tracking-wide uppercase">Asados & Picadas</h2>
+                    <h2 class="font-brand text-xl sm:text-2xl text-white tracking-wide uppercase leading-none">Asados & Picadas</h2>
                 </div>
-                <button type="button" onclick="closePopup('asados-popup')" class="text-2xl text-coyote-beige hover:text-coyote-yellow transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-[#1f1f1f] cursor-pointer">&times;</button>
+                <button type="button" onclick="closePopup('asados-popup')" class="bg-coyote-yellow hover:bg-amber-400 text-coyote-black font-extrabold text-xs px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-lg transition-transform active:scale-95 shrink-0 cursor-pointer border border-coyote-black/20">
+                    <i class="fas fa-arrow-left"></i> <span>Volver</span>
+                </button>
             </div>
             <div class="overflow-y-auto menu-scrollbar flex-grow py-5 pr-1">
                 <div id="asados-list" class="space-y-3 px-1"></div>
@@ -438,12 +446,14 @@
     <!-- POPUP 5: BEBIDAS, SODAS & ADICIONES -->
     <div id="bebidas-popup" class="fixed inset-0 bg-gradient-to-b from-coyote-dark to-coyote-black z-50 hidden p-4 text-white">
         <div class="w-full h-full max-w-lg mx-auto relative flex flex-col">
-            <div class="flex justify-between items-center py-4 px-2 border-b border-coyote-gray/30 shrink-0">
+            <div class="flex justify-between items-center py-3.5 px-2 border-b border-coyote-gray/30 shrink-0 gap-2">
                 <div class="flex items-center gap-2.5">
                     <i class="fas fa-bottle-droplet text-coyote-yellow text-xl"></i>
-                    <h2 class="font-brand text-2xl text-white tracking-wide uppercase">Bebidas & Adiciones</h2>
+                    <h2 class="font-brand text-xl sm:text-2xl text-white tracking-wide uppercase leading-none">Bebidas & Adiciones</h2>
                 </div>
-                <button type="button" onclick="closePopup('bebidas-popup')" class="text-2xl text-coyote-beige hover:text-coyote-yellow transition-colors w-10 h-10 flex items-center justify-center rounded-full bg-[#1f1f1f] cursor-pointer">&times;</button>
+                <button type="button" onclick="closePopup('bebidas-popup')" class="bg-coyote-yellow hover:bg-amber-400 text-coyote-black font-extrabold text-xs px-3.5 py-2 rounded-full flex items-center gap-1.5 shadow-lg transition-transform active:scale-95 shrink-0 cursor-pointer border border-coyote-black/20">
+                    <i class="fas fa-arrow-left"></i> <span>Volver</span>
+                </button>
             </div>
             <div class="overflow-y-auto menu-scrollbar flex-grow py-5 pr-1">
                 <div id="bebidas-list" class="space-y-3 px-1"></div>
@@ -459,7 +469,7 @@
     <!-- POPUP 6: UBICACIÓN Y HORARIOS -->
     <div id="location-popup" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-50 hidden p-4">
         <div class="bg-[#181818] border border-coyote-yellow/40 rounded-3xl shadow-2xl p-6 max-w-xs w-full text-center relative text-white">
-            <button type="button" onclick="closePopup('location-popup')" class="absolute top-3 right-4 text-2xl text-coyote-gray hover:text-white cursor-pointer">&times;</button>
+            <button type="button" onclick="closePopup('location-popup')" class="absolute top-3 right-3 bg-coyote-yellow hover:bg-amber-400 text-coyote-black w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-base shadow-md transition-transform active:scale-95 cursor-pointer" aria-label="Cerrar"><i class="fas fa-times"></i></button>
             <div class="w-14 h-14 bg-gradient-to-tr from-coyote-orange to-coyote-yellow rounded-2xl flex items-center justify-center text-coyote-black mx-auto mb-3 shadow-lg">
                 <i class="fas fa-location-dot text-2xl"></i>
             </div>
@@ -478,7 +488,7 @@
                     <i class="fas fa-motorcycle text-coyote-orange mt-0.5 text-sm"></i>
                     <div>
                         <p class="text-xs font-bold text-white">Servicio a Domicilio</p>
-                        <p class="text-[11px] text-coyote-beige">Línea directa: 316 832 4287</p>
+                        <p class="text-[11px] text-coyote-beige">Casco urbano: <span class="text-coyote-yellow font-bold">$2.000</span> • Línea: 316 832 4287</p>
                     </div>
                 </div>
             </div>
@@ -497,7 +507,7 @@
     <!-- POPUP 7: COMPARTIR QR -->
     <div id="share-popup" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-50 hidden p-4">
         <div class="bg-[#181818] border border-coyote-yellow/40 rounded-3xl shadow-2xl p-7 max-w-xs w-full text-center relative text-white">
-            <button type="button" id="close-share-popup-btn" class="absolute top-3 right-4 text-2xl text-coyote-gray hover:text-white transition-colors cursor-pointer">&times;</button>
+            <button type="button" id="close-share-popup-btn" class="absolute top-3 right-3 bg-coyote-yellow hover:bg-amber-400 text-coyote-black w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-base shadow-md transition-transform active:scale-95 cursor-pointer" aria-label="Cerrar"><i class="fas fa-times"></i></button>
             <h3 class="text-2xl font-bold mb-1 font-brand text-coyote-yellow uppercase">Comparte el Sabor</h3>
             <p class="text-xs text-coyote-beige mb-5">Escanea el QR para abrir la carta de Coyote Express</p>
             
@@ -511,7 +521,7 @@
     <!-- POPUP 8: INSTALACIÓN PWA -->
     <div id="install-popup" class="fixed inset-0 bg-black/85 backdrop-blur-md flex items-center justify-center z-50 hidden p-4">
         <div class="bg-[#181818] border border-coyote-yellow/40 rounded-3xl shadow-2xl p-6 max-w-sm w-full relative text-white">
-            <button type="button" id="close-install-popup-btn" class="absolute top-3 right-4 text-2xl text-coyote-gray hover:text-white transition-colors cursor-pointer">&times;</button>
+            <button type="button" id="close-install-popup-btn" class="absolute top-3 right-3 bg-coyote-yellow hover:bg-amber-400 text-coyote-black w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-base shadow-md transition-transform active:scale-95 cursor-pointer" aria-label="Cerrar"><i class="fas fa-times"></i></button>
             
             <div class="text-center mb-5">
                 <div class="w-12 h-12 bg-gradient-to-tr from-coyote-orange to-coyote-yellow rounded-2xl flex items-center justify-center text-coyote-black mx-auto mb-3 shadow-md">
@@ -544,11 +554,13 @@
     <!-- POPUP 9: CARRITO DE PEDIDOS -->
     <div id="cart-popup" class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 hidden p-4">
         <div class="bg-[#181818] border border-coyote-yellow/40 rounded-3xl shadow-2xl p-5 max-w-sm w-full relative text-white flex flex-col max-h-[90vh]">
-            <div class="flex justify-between items-center mb-3 border-b border-coyote-gray/30 pb-3 shrink-0">
-                <h3 class="text-2xl font-bold font-brand text-coyote-yellow flex items-center gap-2 uppercase">
+            <div class="flex justify-between items-center mb-3 border-b border-coyote-gray/30 pb-3 shrink-0 gap-2">
+                <h3 class="text-xl sm:text-2xl font-bold font-brand text-coyote-yellow flex items-center gap-2 uppercase leading-none">
                     <i class="fas fa-shopping-bag text-coyote-orange"></i> Tu Pedido
                 </h3>
-                <button type="button" id="close-cart-popup-btn" class="text-2xl text-coyote-gray hover:text-white w-8 h-8 flex justify-center items-center rounded-full bg-coyote-black cursor-pointer">&times;</button>
+                <button type="button" id="close-cart-popup-btn" class="bg-coyote-yellow hover:bg-amber-400 text-coyote-black font-extrabold text-xs px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-md transition-transform active:scale-95 cursor-pointer">
+                    <i class="fas fa-arrow-left"></i> <span>Volver</span>
+                </button>
             </div>
             
             <div class="overflow-y-auto menu-scrollbar flex-grow pr-1 mb-3 space-y-4">
@@ -562,17 +574,22 @@
                     <div>
                         <label class="text-[10px] text-coyote-beige block mb-1">¿Cómo deseas recibir tu pedido?</label>
                         <div class="grid grid-cols-2 gap-2">
-                            <button type="button" id="btn-mode-domicilio" onclick="setDeliveryMode('Domicilio')" class="py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex items-center justify-center gap-1.5 transition-all cursor-pointer">
-                                <i class="fas fa-motorcycle"></i> Domicilio
+                            <button type="button" id="btn-mode-domicilio" onclick="setDeliveryMode('Domicilio')" class="py-2 px-2 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex flex-col items-center justify-center leading-tight transition-all cursor-pointer">
+                                <span class="flex items-center gap-1.5"><i class="fas fa-motorcycle"></i> Domicilio</span>
+                                <span class="text-[9px] font-extrabold opacity-80">+$2.000 Urbano</span>
                             </button>
-                            <button type="button" id="btn-mode-recoger" onclick="setDeliveryMode('Recoger en Local')" class="py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex items-center justify-center gap-1.5 transition-all cursor-pointer">
-                                <i class="fas fa-store"></i> Recoger
+                            <button type="button" id="btn-mode-recoger" onclick="setDeliveryMode('Recoger en Local')" class="py-2 px-2 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex flex-col items-center justify-center leading-tight transition-all cursor-pointer">
+                                <span class="flex items-center gap-1.5"><i class="fas fa-store"></i> Recoger</span>
+                                <span class="text-[9px] font-normal opacity-75">Sin costo extra</span>
                             </button>
                         </div>
                     </div>
 
                     <div id="address-field-container">
-                        <label for="order-address" class="text-[10px] text-coyote-beige block mb-1">Dirección / Barrio</label>
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="order-address" class="text-[10px] text-coyote-beige">Dirección / Barrio</label>
+                            <span class="text-[10px] text-coyote-yellow font-semibold">Casco urbano: $2.000</span>
+                        </div>
                         <input type="text" id="order-address" oninput="updateWhatsAppLink()" placeholder="Ej: Calle 10 # 15-20, Barrio Centro" class="w-full bg-[#1e1e1e] text-white text-xs rounded-xl px-3 py-2 border border-coyote-gray/40 focus:outline-none focus:border-coyote-yellow placeholder-coyote-gray/70">
                     </div>
 
@@ -594,9 +611,15 @@
             </div>
 
             <div class="shrink-0 pt-3 border-t border-coyote-gray/30">
-                <div id="cart-total-box" class="flex justify-between items-center bg-coyote-black px-4 py-2.5 rounded-xl border border-coyote-gray/30 mb-3 hidden">
-                    <span class="text-xs uppercase tracking-wider text-coyote-beige font-semibold">Total Estimado:</span>
-                    <span id="cart-total-amount" class="text-lg font-extrabold text-coyote-yellow">$0</span>
+                <div id="cart-total-box" class="bg-coyote-black px-4 py-2.5 rounded-xl border border-coyote-gray/30 mb-3 hidden space-y-1">
+                    <div id="cart-delivery-row" class="flex justify-between items-center text-[11px] text-coyote-beige">
+                        <span>Domicilio (Casco urbano):</span>
+                        <span class="font-bold text-white">$2.000</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-xs uppercase tracking-wider text-coyote-beige font-semibold">Total Estimado:</span>
+                        <span id="cart-total-amount" class="text-lg font-extrabold text-coyote-yellow">$0</span>
+                    </div>
                 </div>
 
                 <a id="send-order-btn" href="#" onclick="rastrearEvento('Enviar_Pedido_WhatsApp')" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-emerald-500 to-green-600 text-white font-bold py-3.5 px-6 rounded-2xl text-base transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.35)] flex items-center justify-center gap-2 opacity-50 pointer-events-none uppercase font-brand tracking-wider">
@@ -618,12 +641,12 @@
     <!-- POPUP 10: PERSONALIZACIÓN RÁPIDA DE PRODUCTO -->
     <div id="customize-popup" class="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50 hidden p-4">
         <div class="bg-[#181818] border border-coyote-yellow/50 rounded-3xl shadow-2xl p-6 max-w-xs w-full relative text-white text-left">
-            <button type="button" onclick="closePopup('customize-popup')" class="absolute top-3 right-4 text-2xl text-coyote-gray hover:text-white cursor-pointer">&times;</button>
+            <button type="button" onclick="closePopup('customize-popup')" class="absolute top-3 right-3 bg-coyote-yellow hover:bg-amber-400 text-coyote-black w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-base shadow-md transition-transform active:scale-95 cursor-pointer" aria-label="Cerrar"><i class="fas fa-times"></i></button>
             
             <div class="flex items-center gap-2 mb-1">
                 <span class="bg-coyote-orange text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase">Personaliza</span>
             </div>
-            <h3 id="cust-product-title" class="text-xl font-bold font-brand text-coyote-yellow uppercase leading-tight">Producto</h3>
+            <h3 id="cust-product-title" class="text-xl font-bold font-brand text-coyote-yellow uppercase leading-tight pr-7">Producto</h3>
             <p id="cust-question" class="text-xs text-coyote-beige mt-1.5 mb-4">Elige una opción para tu plato:</p>
             
             <div id="cust-options-container" class="space-y-2 mb-5"></div>
@@ -635,111 +658,126 @@
     </div>
 
     <script>
+        const DELIVERY_FEE = 2000;
+
         const menuData = {
             estrella: [
-                { name: "Papi Pollo Personal", price: 22000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Papi Pollo Grande", price: 30000, desc: "Porción generosa de papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Papi Express Personal", price: 24000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Papi Express Grande", price: 34000, desc: "Para compartir: papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "ESTRELLA" },
-                { name: "Suprema", price: 50000, desc: "La reina de la casa: papas a la francesa, salchichas, huevos de codorniz, longaniza, trocitos de costilla BBQ, carne y pollo desmechado, maicitos, tocineta y queso mozzarella.", tag: "MEGA" },
-                { name: "Churrasco", price: 36000, desc: "Corte jugoso a la parrilla acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", tag: "PARRILLA", customType: "gratinado" },
-                { name: "Filete de Pollo Gratinado", price: 36000, desc: "Pechuga a la parrilla cubierta con abundante queso gratinado, papas a la francesa, ensalada y arepa con queso.", tag: "PARRILLA" }
+                { name: "PAPIPOLLO (Personal)", price: 22000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozarella.", tag: "ESTRELLA" },
+                { name: "PAPIPOLLO (Mediano)", price: 30000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozarella.", tag: "ESTRELLA" },
+                { name: "PAPIPOLLO (Grande)", price: 32000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozarella.", tag: "ESTRELLA" },
+                { name: "PAPIEXPRESS (Personal)", price: 24000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozarella.", tag: "ESTRELLA" },
+                { name: "PAPIEXPRESS (Grande)", price: 34000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozarella.", tag: "ESTRELLA" },
+                { name: "SUPREMA", price: 50000, desc: "Papas a la francesa, salchichas, huevos de codorniz, longaniza, trocitos de costilla BBQ, carne y pollo desmechado, filete de pollo picado, tocineta y queso mozarella.", tag: "MEGA" },
+                { name: "CHURRASCO", price: 36000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", tag: "PARRILLA", customType: "gratinado" }
             ],
             salchipapas: [
                 { section: "SALCHIPAPAS" },
-                { name: "Salchipapa Sencilla", price: 18000, desc: "Papas a la francesa, salchichas y huevos de codorniz." },
-                { name: "Salchipapa Especial (Tocineta)", price: 20000, desc: "Papas a la francesa, salchichas, huevos de codorniz, tocineta y queso mozzarella." },
-                { name: "Choripapa (Chorizo de Pollo)", price: 20000, desc: "Papas a la francesa, salchichas, huevos de codorniz, chorizo de pollo y queso mozzarella." },
-                { name: "Papi Pollo Personal", price: 22000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papi Pollo Grande", price: 30000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papi Express Personal", price: 24000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papi Express Grande", price: 34000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Suprema", price: 50000, desc: "Papas a la francesa, salchichas, huevos de codorniz, longaniza, costilla BBQ, carne y pollo desmechado, maicitos, tocineta y queso mozzarella.", tag: "TOP" },
-                { name: "Papicoste Personal", price: 24000, desc: "Papas a la francesa, salchichas, trocitos de costilla BBQ, tocineta, huevos de codorniz y queso mozzarella." },
-                { name: "Papicoste Grande", price: 34000, desc: "Porción grande con trocitos de costilla BBQ, tocineta, huevos de codorniz y queso mozzarella." },
-                { name: "Papi Enqueso", price: 22000, desc: "Papas a la francesa, dedos de pechuga de pollo crocantes, huevos de codorniz y queso mozzarella." },
-                { name: "Papas Americanas", price: 18000, desc: "Papas a la francesa, salsa de queso tipo cheddar y tocineta crocante." },
-                { section: "PATACÓN O AREPA" },
-                { name: "Patacón o Arepa Pura", price: 28000, desc: "Carne y pollo desmechado, salchichas, maicitos, hogao, huevo de codorniz y queso mozzarella." },
-                { name: "Patacón o Arepa Entripado", price: 28000, desc: "Pollo y carne desmechada, maicitos, hogao, huevo de codorniz y queso mozzarella." }
+                { name: "SENCILLA", price: 16000, desc: "Papas a la francesa, salchichas y huevos de codorniz." },
+                { name: "ESPECIAL (TOCINETA)", price: 19000, desc: "Papas a la francesa, salchichas, huevos de codorniz, tocineta y queso mozarella." },
+                { name: "CHORIPAPA (CHORIZO DE POLLO)", price: 18000, desc: "Papas a la francesa, salchichas, huevos de codorniz, chorizo de pollo y queso mozarella." },
+                { name: "PAPIPOLLO (Personal)", price: 22000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozarella.", tag: "TOP" },
+                { name: "PAPIPOLLO (Mediano)", price: 30000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozarella.", tag: "TOP" },
+                { name: "PAPIPOLLO (Grande)", price: 32000, desc: "Papas a la francesa, salchichas, huevos de codorniz, filete de pollo picado, tocineta y queso mozarella.", tag: "TOP" },
+                { name: "PAPIEXPRESS (Personal)", price: 24000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozarella.", tag: "TOP" },
+                { name: "PAPIEXPRESS (Grande)", price: 34000, desc: "Papas a la francesa, carne y pollo desmechado, salchichas, huevos de codorniz, tocineta y queso mozarella.", tag: "TOP" },
+                { name: "SUPREMA", price: 50000, desc: "Papas a la francesa, salchichas, huevos de codorniz, longaniza, trocitos de costilla BBQ, carne y pollo desmechado, filete de pollo picado, tocineta y queso mozarella.", tag: "TOP" },
+                { name: "PAPICOSTI (Personal)", price: 24000, desc: "Papas a la francesa, salchichas, trocitos de costillas BBQ, tocineta, huevos de codorniz y queso mozarella.", tag: "NUEVO" },
+                { name: "PAPICOSTI (Grande)", price: 34000, desc: "Papas a la francesa, salchichas, trocitos de costillas BBQ, tocineta, huevos de codorniz y queso mozarella.", tag: "NUEVO" },
+                { name: "PAPI FINGUERS", price: 22000, desc: "Papas a la francesa, deditos de pechuga de pollo apanados, huevos de codorniz y queso mozarella.", tag: "NUEVO" },
+                { name: "PAPAS AMERICANAS", price: 15000, desc: "Papas a la francesa, salsa de queso tipo cheddar y tocineta crocante.", tag: "NUEVO" },
+                { section: "PATACÓN Ó AREPA" },
+                { name: "FIERA (Patacón ó Arepa)", price: 20000, desc: "Carne y pollo desmechado, salchichas, maicitos, hogao, huevo de codorniz y queso mozarella." },
+                { name: "ANTIOQUEÑO (Patacón ó Arepa)", price: 20000, desc: "Chorizo mixto, chicharrón, maicitos, hogao, huevo de codorniz y queso mozarella." }
             ],
             burgers: [
                 { section: "HAMBURGUESAS" },
-                { name: "Burger Res Especial", price: 20000, desc: "Pan brioche, carne de res, tocineta, queso mozzarella, lechuga, tomate, ensalada de perro y ripio de papa." },
-                { name: "Burger Pollo Artesanal", price: 20000, desc: "Pan brioche, filete de pollo, tocineta, queso mozzarella, lechuga, tomate, ensalada de perro y ripio de papa." },
-                { name: "Burger Mixta o Doble Carne", price: 28000, desc: "Pan brioche, carne de res, filete de pollo, tocineta, queso mozzarella, lechuga, tomate, ensalada de perro y ripio de papa." },
-                { name: "Burger Trifásica", price: 30000, desc: "Pan brioche, carne de res, tocineta, chorizo de pollo, queso mozzarella, lechuga, tomate, ripio de papa, salsa tártara y ensalada de perro." },
-                { name: "Súper Burger", price: 30000, desc: "Pan brioche, carne de res, pollo y carne desmechada, tocineta, queso mozzarella, lechuga, tomate, ripio de papa y salsa de la casa." },
-                { name: "Burger Deportiva", price: 20000, desc: "Pan brioche, carne de res o pollo, queso tipo cheddar, lechuga, tomate y papas americanas.", customType: "proteina" },
-                { name: "Smash Burger", price: 23000, desc: "Pan brioche, carne de res tipo smash, doble queso tipo cheddar, salsa especial, cebolla caramelizada y papas a la francesa." },
-                { name: "Pulled Beef Burger", price: 23000, desc: "Pan brioche, carne de res en trozos, doble queso cheddar, tocineta crocante, carne desmechada en demiglace de BBQ, piña y papas estilo Big Mac." },
-                { name: "Burger Tocinada", price: 23000, desc: "Pan brioche, proteína a elección (res o pollo), tocineta, queso mozzarella, ripio de papa, ensalada de perro, papas y gaseosa personal.", customType: "proteina" },
-                { section: "PERROS CALIENTES (Con ensalada de perro y ripio de papa)" },
-                { name: "Perro Especial", price: 18000, desc: "Salchicha zenú + tocineta." },
-                { name: "Perra", price: 20000, desc: "Abundante tocineta y queso." },
-                { name: "Perro Suizo", price: 20000, desc: "Longaniza zenú + tocineta." },
-                { name: "Perro Coyote", price: 22000, desc: "Carne desmechada + tocineta." },
-                { name: "Perro Zorra", price: 22000, desc: "Pollo desmechado + tocineta." },
-                { name: "Perro Grilla", price: 22000, desc: "Carne y pollo desmechado + tocineta." },
-                { name: "Perro Sabroso", price: 26000, desc: "Salchicha zenú + carne y pollo desmechado + tocineta." },
-                { name: "Perro Tromp", price: 30000, desc: "Longaniza zenú + carne y pollo desmechado + tocineta + papas a la francesa." },
-                { section: "ENSALADA GOURMET & APLASTADO" },
-                { name: "Aplastado Especial", price: 32000, desc: "Pan brioche, jamón, carne y pollo desmechado, hogao, tocineta, queso mozzarella y huevo de codorniz." },
-                { name: "Ensalada de Pollo", price: 24000, desc: "Filete de pollo en trocitos, lechuga, ensalada de verduras, maicitos, huevos de codorniz y salsa de la casa." },
-                { name: "Ensalada de Atún", price: 24000, desc: "Atún, lechuga, ensalada de verduras, maicitos, huevos de codorniz y salsa de la casa." }
+                { name: "RES ESPECIAL", price: 20000, desc: "Pan brioche, carne de res, tocineta, queso mozarella, lechuga, tomate, ensalada de perro y ripio de papa." },
+                { name: "POLLO ARTESANAL", price: 20000, desc: "Pan brioche, filete de pollo, tocineta, queso mozarella, lechuga, tomate, ensalada de perro y ripio de papa." },
+                { name: "MIXTA O DOBLE CARNE", price: 28000, desc: "Pan brioche, carne de res, filete de pollo, tocineta, queso lechuga, tomate, ensalada de perro y ripio de papa." },
+                { name: "TRIFÁSICA", price: 28000, desc: "Pan brioche, carne de res, tocineta, chorizo de pollo, queso mozarella, lechuga, tomate, ripio de papa, salsa tártara, ensalada de perro (opcional)." },
+                { name: "SUPER BURGUER", price: 30000, desc: "Pan brioche, carne de res, pollo y carne desmechada, tocineta, queso mozarella, lechuga, tomate, ripio de papa y papas a la francesa." },
+                { name: "DEPORTADA", price: 23000, desc: "Pan brioche, carne de res, tocineta, queso tipo chedar, lechuga, tomate y papas americanas.", tag: "NUEVO" },
+                { name: "SMASH BURGUER", price: 23000, desc: "Pan brioche, carne de res tipo smash, tocineta, queso tipo chedar, Salsa bigmac, cebolla y papas a la francesa.", tag: "NUEVO" },
+                { name: "PULLED BEEF BURGER", price: 23000, desc: "Pan brioche, carne de res a las brasas, doble queso cheddar, rodajas de tomate, carne desmechada con demiglace de BBQ, chips de papa, salsa Big Mac.", tag: "NUEVO" },
+                { name: "TRIBURGUER", price: 32000, desc: "Pan brioche, 3 carnes artesanales (res ó pollo), tocineta, queso, lechuga, tomate, ensalada de perro, ripio de papa, y papas a la francesa.", tag: "NUEVO" },
+                { section: "PERROS (Con ensalada de perro y ripio de papa)" },
+                { name: "PERRO ESPECIAL", price: 15000, desc: "Salchicha zenú + tocineta." },
+                { name: "PERRA", price: 20000, desc: "Abundante tocineta." },
+                { name: "PERRO SUIZO", price: 20000, desc: "Longaniza zenú + tocineta." },
+                { name: "PERRO COYOTE", price: 22000, desc: "Carne desmechada + tocineta." },
+                { name: "PERRO ZUNGA", price: 22000, desc: "Pollo desmechado + tocineta." },
+                { name: "PERRO GRILLA", price: 22000, desc: "Carne y pollo desmechado + tocineta." },
+                { name: "PERRO BANDIDA", price: 26000, desc: "Salchicha zenú + carne y pollo desmechado + tocineta." },
+                { name: "PERRO THONY", price: 30000, desc: "Longaniza zenú + carne y pollo desmechado + tocineta + francesa." },
+                { section: "ENSALADA GOURMET, APLASTADO ESPECIAL" },
+                { name: "APLASTADO ESPECIAL", price: 17000, desc: "Pan Brioche a la plancha, carne y pollo desmechado, hogao, tocineta, queso mozarella y huevo de codorniz." },
+                { name: "ENSALADA DE POLLO", price: 20000, desc: "Filete de pollo en julianas, lechuga, ensalada de verduras, crutones, huevos de codorniz y salsa de la casa." },
+                { name: "ENSALADA DE ATÚN", price: 24000, desc: "Atún en lomitos, lechuga, ensalada de verduras, crutones, huevos de codorniz y salsa de la casa." }
             ],
             asados: [
-                { section: "ASADOS AL CARBÓN (Con papas a la francesa, ensalada y arepa con queso)" },
-                { name: "Churrasco", price: 36000, desc: "Corte clásico jugoso a la parrilla con acompañamientos completos.", tag: "TOP", customType: "gratinado" },
-                { name: "Filete de Pollo Gratinado", price: 36000, desc: "Pechuga asada bañada en queso mozzarella gratinado y acompañamientos.", tag: "TOP" },
-                { name: "Punta de Anca", price: 36000, desc: "Corte tradicional tierno y jugoso con papas, ensalada y arepa con queso.", customType: "gratinado" },
-                { name: "Cañón de Cerdo", price: 36000, desc: "Lomo de cerdo asado al punto perfecto con acompañamientos.", customType: "gratinado" },
-                { name: "Costilla BBQ", price: 36000, desc: "Costillas de cerdo bañadas en nuestra salsa BBQ artesanal.", customType: "gratinado" },
-                { name: "Filete de Pollo", price: 36000, desc: "Pechuga de pollo jugosa a la parrilla con papas, ensalada y arepa con queso.", customType: "gratinado" },
-                { name: "Churrasco Premium", price: 40000, desc: "Corte seleccionado de mayor gramaje a la parrilla con acompañamientos.", customType: "gratinado" },
-                { name: "Entrañita", price: 45000, desc: "Corte especial de res ultra jugoso y lleno de sabor a la brasa.", customType: "gratinado" },
-                { name: "Media Porción de Asado", price: 28000, desc: "Porción personal ideal con papas a la francesa, ensalada y arepa con queso.", customType: "gratinado" },
-                { name: "Adición Gratinado para Asado", price: 5000, desc: "Capa extra de queso mozzarella fundido sobre tu corte." },
-                { section: "CHUZOS, LONGANIZA & PICADAS" },
-                { name: "Chuzo de Pollo Artesanal (Solo)", price: 22000, desc: "Acompañado de papas al vapor, ensalada de perro y arepa." },
-                { name: "Chuzo de Pollo Artesanal (Con Papas Francesa)", price: 24000, desc: "Con papas a la francesa, ensalada de perro y arepa." },
-                { name: "Longaniza Zenú (Sola)", price: 22000, desc: "Acompañada de papas al vapor, ensalada de perro y arepa." },
-                { name: "Longaniza Zenú (Con Papas Francesa)", price: 24000, desc: "Con papas a la francesa, ensalada de perro y arepa." },
-                { name: "Picada Pollo", price: 30000, desc: "Carne de cerdo, filete de pollo, chorizo, papas fritas, monedas de plátano, tomate, arepa gratinada y ensalada." },
-                { name: "Picada Especial", price: 38000, desc: "Carne de cerdo, filete de pollo, chorizo, papas fritas, monedas de plátano, tomate, arepa gratinada y ensalada." }
+                { section: "ASADOS (Con papas a la francesa, ensalada de verduras y arepa con queso)" },
+                { name: "PUNTA DE ANCA", price: 36000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "CHURRASCO", price: 36000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", tag: "TOP", customType: "gratinado" },
+                { name: "CAÑON DE CERDO", price: 36000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "COSTILLA BBQ", price: 36000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "FILETE DE POLLO", price: 36000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "CHURRASCO PREMIUM", price: 45000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "ENTRAÑITA", price: 45000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "MEDIA PORCIÓN", price: 26000, desc: "Acompañado con papas a la francesa, ensalada de verduras y arepa con queso.", customType: "gratinado" },
+                { name: "GRATINADO", price: 5000, desc: "Adición de gratinado para asados." },
+                { name: "CHUZO DE POLLO ARTESANAL (Papas al vapor)", price: 22000, desc: "Papas al vapor, ensalada de perro y arepa." },
+                { name: "CHUZO DE POLLO ARTESANAL (Papas a la francesa)", price: 24000, desc: "Papas a la francesa, ensalada de perro y arepa." },
+                { name: "LONGANIZA ZENÚ (Papas al vapor)", price: 22000, desc: "Papas al vapor, ensalada de perro y arepa." },
+                { name: "LONGANIZA ZENÚ (Papas a la francesa)", price: 24000, desc: "Papas a la francesa, ensalada de perro y arepa." },
+                { name: "PICADA PAISA", price: 65000, desc: "Carne de cerdo, filete de pollo, chorizo, chicharrón, yucas fritas, papas al vapor, papas a la francesa, arepa gratinada y ensalada de verduras." },
+                { name: "PICADA ESPECIAL", price: 60000, desc: "Carne de cerdo, filete de pollo, chorizo, yucas fritas, papas a la francesa, arepa gratinada y ensalada de verduras." }
             ],
             bebidas: [
-                { section: "BEBIDAS FRÍAS" },
-                { name: "Gaseosa 350 ml", price: 4000, desc: "Variedad de sabores bien fríos." },
-                { name: "Botella de Agua", price: 4000, desc: "Agua pura refrescante." },
-                { name: "Hit / Mr Tea / H2Oh / Mr Polo", price: 4000, desc: "Jugos y tés helados." },
-                { name: "Cerveza Nacional", price: 6000, desc: "Bien fría." },
-                { name: "Cerveza Coronita", price: 6000, desc: "Refrescante." },
-                { name: "Cerveza Corona", price: 8000, desc: "Botella grande bien fría." },
-                { name: "Gaseosa 1.5 Litros", price: 10000, desc: "Ideal para compartir en mesa o domicilio." },
-                { name: "Gaseosa 3 Litros", price: 14000, desc: "Tamaño familiar." },
-                { name: "Vaso con Hielo y Limón", price: 2000, desc: "Acompañamiento refrescante." },
-                { section: "SODAS & MICHELADAS" },
-                { name: "Michelada Tradicional", price: 8000, desc: "Con limón, sal y toque especial." },
-                { name: "Soda Hawaiana", price: 10000, desc: "Refrescante mezcla tropical." },
+                { section: "BEBIDAS" },
+                { name: "GASEOSA 350 ML", price: 4000, desc: "Bien fría." },
+                { name: "BOTELLA DE AGUA", price: 4000, desc: "Refrescante." },
+                { name: "HIT, MR TEA, H2OH, GO PACK", price: 4000, desc: "Bebida refrescante." },
+                { name: "CORONA", price: 8000, desc: "Cerveza Corona." },
+                { name: "CORONITA", price: 5000, desc: "Cerveza Coronita." },
+                { name: "CERVEZA NACIONAL", price: 4000, desc: "Bien fría." },
+                { name: "GASEOSA 1.5 L", price: 10000, desc: "Tamaño familiar 1.5 litros." },
+                { name: "GASEOSA 3 LITROS", price: 15000, desc: "Tamaño familiar 3 litros." },
+                { name: "VASO CON HIELO (C/U)", price: 500, desc: "Vaso con hielo cada uno." },
+                { section: "SODAS" },
+                { name: "MICHELADA TRADICIONAL", price: 8000, desc: "Refrescante michelada." },
+                { name: "CEREZADA", price: 10000, desc: "Soda cerezada." },
                 { section: "ADICIONES" },
-                { name: "Moneditas de Plátano con Hogao", price: 7000, desc: "Crocantes con hogao casero." },
-                { name: "Porción de Papas a la Francesa", price: 7000, desc: "Doraditas y crocantes." },
-                { name: "Porción de Yucas", price: 7000, desc: "Fritas y suaves por dentro." },
-                { name: "Porción de Ensalada", price: 7000, desc: "Fresca del día." },
-                { name: "Porción de Tocineta", price: 7000, desc: "Extra crocante." },
-                { name: "Porción de Queso de Sánduche", price: 7000, desc: "Para darle más sabor a tu plato." },
-                { name: "Porción de Tártara / De la Casa", price: 7000, desc: "4 onzas de nuestra salsa insignia." },
-                { name: "Porción de Salchicha", price: 8000, desc: "Adición de salchicha." },
-                { name: "Porción de Costillas BBQ", price: 15000, desc: "Trocitos jugosos de costilla." },
-                { name: "Tarro de Tártara", price: 18000, desc: "Para llevar a casa." },
-                { name: "Para Empacar", price: 1000, desc: "Empaque desechable." }
+                { name: "MONEDITAS DE PLÁTANO CON HOGAO", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE PAPAS", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE YUCAS", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE ENSALADA", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE TOCINETA", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE HUEVO DE CODORNIZ", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE TÁRTARA (4 ONZAS)", price: 7000, desc: "Adición." },
+                { name: "PORCIÓN DE COSTILLAS", price: 9000, desc: "Adición." },
+                { name: "PORCIÓN DE SALCHICHA", price: 7000, desc: "Adición." },
+                { name: "TARRO DE TÁRTARA", price: 16000, desc: "Adición." },
+                { name: "PARA EMPACAR", price: 1000, desc: "Empaque desechable." }
             ]
         };
 
-        const formatCOP = (amount) => "$" + Number(amount || 0).toLocaleString('es-CO');
+        let cart = {};
+        let deliveryMode = 'Domicilio';
 
+        const formatCOP = (amount) => "$" + Number(amount || 0).toLocaleString('es-CO');
         const escapeAttr = (str) => String(str).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+
+        const getItemQtyInCart = (baseName, customType) => {
+            if (!customType) {
+                return cart[baseName] ? cart[baseName].qty : 0;
+            }
+            return Object.entries(cart).reduce((sum, [key, val]) => {
+                if (key === baseName || key.startsWith(`${baseName} (`) || key.startsWith(`${baseName} +`)) {
+                    return sum + val.qty;
+                }
+                return sum;
+            }, 0);
+        };
 
         const renderMenuCategory = (categoryKey, containerId) => {
             const container = document.getElementById(containerId);
@@ -760,33 +798,70 @@
                     ? `<span class="bg-coyote-orange text-white text-[9px] font-extrabold px-2 py-0.5 rounded-full uppercase tracking-wider ml-1.5 align-middle">${item.tag}</span>` 
                     : '';
 
+                const qty = getItemQtyInCart(item.name, item.customType);
+                const isSelected = qty > 0;
                 const safeName = escapeAttr(item.name);
-                const clickAction = item.customType
-                    ? `openCustomizeModal('${safeName}', ${item.price}, '${item.customType}')`
-                    : `addToCart('${safeName}', ${item.price})`;
+
+                const cardClasses = isSelected
+                    ? "bg-[#232016] rounded-2xl border-2 border-coyote-yellow shadow-[0_0_16px_rgba(245,184,0,0.2)] p-3 flex items-center justify-between gap-3 transition-all"
+                    : "bg-[#1b1b1b] rounded-2xl border border-coyote-gray/25 shadow-md p-3 flex items-center justify-between gap-3 transition-all hover:border-coyote-yellow/50 hover:bg-[#222222]";
+
+                const qtyPillHtml = isSelected
+                    ? `<span class="bg-coyote-yellow text-coyote-black text-[10px] font-extrabold px-2 py-0.5 rounded-full ml-1.5 align-middle shadow-sm"><i class="fas fa-check mr-0.5"></i> ${qty} en pedido</span>`
+                    : '';
+
+                let controlsHtml = '';
+                if (item.customType) {
+                    const addAction = `openCustomizeModal('${safeName}', ${item.price}, '${item.customType}')`;
+                    controlsHtml = isSelected
+                        ? `<button type="button" onclick="${addAction}" class="bg-coyote-yellow text-coyote-black font-extrabold px-3 py-2 rounded-xl text-xs flex items-center gap-1.5 shrink-0 transition-transform active:scale-95 shadow-md cursor-pointer" aria-label="Agregar más de ${item.name}">
+                                <i class="fas fa-plus"></i> <span>${qty}</span>
+                           </button>`
+                        : `<button type="button" onclick="${addAction}" class="bg-gradient-to-tr from-coyote-yellow to-amber-400 hover:from-coyote-orange hover:to-coyote-orange text-coyote-black hover:text-white w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 transition-all hover:scale-110 shadow-md font-bold cursor-pointer" aria-label="Agregar ${item.name}">
+                                <i class="fas fa-plus"></i>
+                           </button>`;
+                } else {
+                    if (isSelected) {
+                        controlsHtml = `
+                            <div class="flex items-center gap-1.5 bg-coyote-black border border-coyote-yellow rounded-xl px-1.5 py-1 shrink-0 shadow-md">
+                                <button type="button" onclick="decreaseCart('${safeName}')" class="text-coyote-beige hover:text-coyote-orange w-7 h-7 rounded-lg bg-[#1e1e1e] flex items-center justify-center font-extrabold text-base transition-colors cursor-pointer" aria-label="Quitar uno">&minus;</button>
+                                <span class="text-coyote-yellow font-extrabold text-sm w-5 text-center">${qty}</span>
+                                <button type="button" onclick="addToCart('${safeName}', ${item.price})" class="bg-coyote-yellow text-coyote-black hover:bg-amber-400 w-7 h-7 rounded-lg flex items-center justify-center font-extrabold text-base transition-transform active:scale-90 cursor-pointer" aria-label="Agregar otro">+</button>
+                            </div>
+                        `;
+                    } else {
+                        controlsHtml = `
+                            <button type="button" onclick="addToCart('${safeName}', ${item.price})" class="bg-gradient-to-tr from-coyote-yellow to-amber-400 hover:from-coyote-orange hover:to-coyote-orange text-coyote-black hover:text-white w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 transition-all hover:scale-110 shadow-md font-bold cursor-pointer" aria-label="Agregar ${item.name}">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        `;
+                    }
+                }
 
                 return `
-                    <div class="bg-[#1b1b1b] rounded-2xl border border-coyote-gray/25 shadow-md p-3 flex items-center justify-between gap-3 transition-all hover:border-coyote-yellow/50 hover:bg-[#222222]">
+                    <div class="${cardClasses}">
                         <div class="flex-1 text-left">
                             <h4 class="font-bold text-sm text-white leading-snug">
-                                ${item.name}${badgeHtml}
+                                ${item.name}${badgeHtml}${qtyPillHtml}
                             </h4>
                             <p class="text-[11px] text-coyote-beige/80 mt-1 leading-snug">${item.desc}</p>
                             <p class="text-coyote-yellow font-extrabold text-sm mt-1.5">${formatCOP(item.price)}</p>
                         </div>
-                        <button type="button" onclick="${clickAction}" class="bg-gradient-to-tr from-coyote-yellow to-amber-400 hover:from-coyote-orange hover:to-coyote-orange text-coyote-black hover:text-white w-9 h-9 rounded-xl flex items-center justify-center text-sm shrink-0 transition-all hover:scale-110 shadow-md font-bold cursor-pointer" aria-label="Agregar ${item.name}">
-                            <i class="fas fa-plus"></i>
-                        </button>
+                        ${controlsHtml}
                     </div>
                 `;
             }).join('');
         };
 
-        renderMenuCategory('estrella', 'estrella-list');
-        renderMenuCategory('salchipapas', 'salchipapas-list');
-        renderMenuCategory('burgers', 'burgers-list');
-        renderMenuCategory('asados', 'asados-list');
-        renderMenuCategory('bebidas', 'bebidas-list');
+        const renderAllMenuCategories = () => {
+            renderMenuCategory('estrella', 'estrella-list');
+            renderMenuCategory('salchipapas', 'salchipapas-list');
+            renderMenuCategory('burgers', 'burgers-list');
+            renderMenuCategory('asados', 'asados-list');
+            renderMenuCategory('bebidas', 'bebidas-list');
+        };
+
+        renderAllMenuCategories();
 
         const openPopup = (popupId) => {
             const el = document.getElementById(popupId);
@@ -983,18 +1058,16 @@
         const cartItemsContainer = document.getElementById('cart-items');
         const sendOrderBtn = document.getElementById('send-order-btn');
         const cartTotalBox = document.getElementById('cart-total-box');
+        const cartDeliveryRow = document.getElementById('cart-delivery-row');
         const cartTotalAmount = document.getElementById('cart-total-amount');
         const clearCartBtn = document.getElementById('clear-cart-btn');
         const deliveryForm = document.getElementById('delivery-form');
         const toast = document.getElementById('toast');
         const toastMsg = document.getElementById('toast-msg');
 
-        let cart = {};
-        let deliveryMode = 'Domicilio';
-
         const openCartModal = () => {
             renderCart();
-            updateWhatsAppLink();
+            updateCartUI();
             openPopup('cart-popup');
         };
 
@@ -1017,7 +1090,8 @@
                 cart[itemName] = { qty: 1, price: price };
             }
             updateCartUI();
-            showToast(itemName);
+            renderAllMenuCategories();
+            showToast(itemName, cart[itemName].qty);
             rastrearEvento(`Agregar_${itemName.replace(/[^a-zA-Z0-9]+/g, '_')}`);
         };
 
@@ -1028,15 +1102,15 @@
             const addrContainer = document.getElementById('address-field-container');
 
             if (mode === 'Domicilio') {
-                btnDom.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex items-center justify-center gap-1.5 transition-all cursor-pointer";
-                btnRec.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex items-center justify-center gap-1.5 transition-all cursor-pointer";
+                btnDom.className = "py-2 px-2 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex flex-col items-center justify-center leading-tight transition-all cursor-pointer";
+                btnRec.className = "py-2 px-2 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex flex-col items-center justify-center leading-tight transition-all cursor-pointer";
                 addrContainer.classList.remove('hidden');
             } else {
-                btnRec.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex items-center justify-center gap-1.5 transition-all cursor-pointer";
-                btnDom.className = "py-2 px-2.5 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex items-center justify-center gap-1.5 transition-all cursor-pointer";
+                btnRec.className = "py-2 px-2 rounded-xl text-xs font-bold border border-coyote-yellow bg-coyote-yellow text-coyote-black flex flex-col items-center justify-center leading-tight transition-all cursor-pointer";
+                btnDom.className = "py-2 px-2 rounded-xl text-xs font-bold border border-coyote-gray/40 bg-[#1e1e1e] text-coyote-beige flex flex-col items-center justify-center leading-tight transition-all cursor-pointer";
                 addrContainer.classList.add('hidden');
             }
-            updateWhatsAppLink();
+            updateCartUI();
         };
 
         window.decreaseCart = (itemName) => {
@@ -1046,6 +1120,7 @@
             }
             updateCartUI();
             renderCart();
+            renderAllMenuCategories();
         };
 
         window.increaseCart = (itemName) => {
@@ -1054,18 +1129,22 @@
             }
             updateCartUI();
             renderCart();
+            renderAllMenuCategories();
         };
 
         window.clearCart = () => {
             cart = {};
             updateCartUI();
             renderCart();
+            renderAllMenuCategories();
         };
 
         const updateCartUI = () => {
             const entries = Object.values(cart);
             const totalCount = entries.reduce((sum, item) => sum + item.qty, 0);
-            const totalMoney = entries.reduce((sum, item) => sum + (item.qty * item.price), 0);
+            const subtotalMoney = entries.reduce((sum, item) => sum + (item.qty * item.price), 0);
+            const shippingCost = (totalCount > 0 && deliveryMode === 'Domicilio') ? DELIVERY_FEE : 0;
+            const grandTotal = subtotalMoney + shippingCost;
 
             document.querySelectorAll('.cart-badge, .cart-badge-inline').forEach(badge => {
                 badge.innerText = totalCount;
@@ -1079,7 +1158,14 @@
                 cartTotalBox.classList.remove('hidden');
                 clearCartBtn.classList.remove('hidden');
                 deliveryForm.classList.remove('hidden');
-                cartTotalAmount.innerText = formatCOP(totalMoney);
+
+                if (deliveryMode === 'Domicilio') {
+                    cartDeliveryRow.classList.remove('hidden');
+                } else {
+                    cartDeliveryRow.classList.add('hidden');
+                }
+
+                cartTotalAmount.innerText = formatCOP(grandTotal);
             } else {
                 sendOrderBtn.classList.add('opacity-50', 'pointer-events-none');
                 sendOrderBtn.classList.remove('hover:brightness-110');
@@ -1088,7 +1174,7 @@
                 deliveryForm.classList.add('hidden');
             }
 
-            updateWhatsAppLink(totalMoney);
+            updateWhatsAppLink(subtotalMoney, shippingCost, grandTotal);
         };
 
         const renderCart = () => {
@@ -1121,26 +1207,36 @@
             }).join('');
         };
 
-        const showToast = (itemName) => {
-            toastMsg.innerText = `1x ${itemName} agregado`;
+        let toastTimer = null;
+        const showToast = (itemName, totalQty = 1) => {
+            toastMsg.innerText = `${itemName} (${totalQty} en pedido)`;
             toast.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
             toast.classList.add('opacity-100', 'translate-y-0');
-            setTimeout(() => {
+            if (toastTimer) clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
                 toast.classList.remove('opacity-100', 'translate-y-0');
                 toast.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-20px]');
             }, 2000);
         };
 
-        const updateWhatsAppLink = (passedTotal) => {
+        const updateWhatsAppLink = (passedSubtotal, passedShipping, passedTotal) => {
             const items = Object.entries(cart);
             if (items.length === 0) {
                 sendOrderBtn.href = "#";
                 return;
             }
 
-            const totalMoney = typeof passedTotal === 'number'
-                ? passedTotal
+            const subtotalMoney = typeof passedSubtotal === 'number'
+                ? passedSubtotal
                 : items.reduce((sum, [, data]) => sum + (data.qty * data.price), 0);
+
+            const shippingCost = typeof passedShipping === 'number'
+                ? passedShipping
+                : (deliveryMode === 'Domicilio' ? DELIVERY_FEE : 0);
+
+            const grandTotal = typeof passedTotal === 'number'
+                ? passedTotal
+                : subtotalMoney + shippingCost;
 
             const address = document.getElementById('order-address')?.value.trim() || '';
             const payment = document.getElementById('order-payment')?.value || 'Efectivo';
@@ -1150,8 +1246,12 @@
             items.forEach(([name, data]) => {
                 text += `▪️ *${data.qty}x* ${name} — ${formatCOP(data.price * data.qty)}\n`;
             });
-            text += `\n💰 *Total estimado:* ${formatCOP(totalMoney)}\n`;
-            text += `🛵 *Modalidad:* ${deliveryMode}\n`;
+            text += `\n🧾 *Subtotal productos:* ${formatCOP(subtotalMoney)}\n`;
+            if (deliveryMode === 'Domicilio') {
+                text += `🛵 *Domicilio (Casco urbano):* ${formatCOP(shippingCost)}\n`;
+            }
+            text += `💰 *Total a pagar:* ${formatCOP(grandTotal)}\n`;
+            text += `📦 *Modalidad:* ${deliveryMode}\n`;
             if (deliveryMode === 'Domicilio') {
                 text += `📍 *Dirección:* ${address || 'Por confirmar'}\n`;
             }
